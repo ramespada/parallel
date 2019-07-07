@@ -1,5 +1,4 @@
 # VI básico
-> (*vee eye*)
 
 
 ```
