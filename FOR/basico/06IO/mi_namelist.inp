@@ -1,0 +1,8 @@
+&mi_lista
+	Nombre="Alberto",
+	Apellido="Gonzales",
+	Altura=182,
+	Peso=80000,
+	mensaje='Me debe gita.',
+
+/
