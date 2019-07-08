@@ -153,5 +153,4 @@ CREATE SCRIPT
 
   The next time you start Vim it will use syntax highlighting.
   You can add all your preferred settings to this "vimrc" file.
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

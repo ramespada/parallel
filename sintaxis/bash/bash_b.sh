@@ -1,4 +1,9 @@
 #!/bin/bash
+pwd	#muestra directorio actual	
+cd	#cambio de directorio 
+ls	#muestra contenido del directorio
+
+<tab>	(autocomplete)
 
 #Estructura típica de comandos:
 #	<comando> -<op> <arg1> <arg2> ... <argN>
@@ -6,17 +11,19 @@
 help
 #<comando>--help
 
-#I/O
-echo "Hola mundo!" #stout
-read var	   #stdin
+which grep
 
-read variable	# Recibe input y lo guarda en $variable
+whatis grep
 
-#Moverse:
-pwd	#muestra directorio actual	
-cd	#cambio de directorio
-ls	#muestra contenido del directorio
+apropos copy
 
+man grep
+history
+
+mkdir <dir>	#crea directorio
+rmdir <dir>	#elimina directorio
+
+touch <arch>	#crea archivo/actualiza fecha de acceso
 
 cp <arch> <arch1>	#copiar archivo
 mv <arch> <arch1>	#mover archivo (cambiar de nombre)
@@ -25,8 +32,49 @@ ln <arch> <link>	#crea "acceso directo"
 
 cat <arch> 		#lee contenido de archivo
 
-mkdir <dir>	#crea directorio
-rmdir <dir>	#elimina directorio
+cat >> archivo1
+Hola! Mi nombre es Ramiro. Bash esta re piola! <ctrl>d
+
+cat archivo1
+
+more   
+less   #q
+vim archivo1
+
+#Flujo
+| 		#'pipe': concatena comandos
+tee archivo	# recibe stdin, lo guarda en 'archivo' y pasa como stdout
+>
+>>
+
+
+#Users
+sudo
+
+su - user2	#ingreso a la cuenta de user2 como si fuese el
+su user2	#ingreso a la cuenta de user2, pero como user actual
+
+users
+id
+
+#Info de archivos
+file <archivo>			#te muestra tipo de archivo
+stat <archivo>  		#te muestra el estado del archivo
+chmod <opcion> <archivo>	#cambiar modo de archivo 
+				#(<r>lectura/<w>escritura/<x>ejecucion)
+		#	{user} 	 {group}    {any1} 
+		#	r w x  -  r w x  -  r w x 
+		#	4 2 1 	  4 2 1     4 2 1
+			
+#Info del sistema
+ps	      # muestra procesos: -A  -s -ef
+kill <pID>    # mata proceso (pID)  OJOOO CON ESTO!!
+
+#I/O
+echo "Hola mundo!" #stout
+read var	   #stdin
+
+read variable	# Recibe input y lo guarda en $variable
 
 
 #Busqueda:
@@ -37,11 +85,11 @@ locate <patron>
 grep <patron>  #Busca patron siempre se usa junto con |
 # 
 # -----------------------------------------------------------#
-#Flujo
-| 		#'pipe': concatena comandos
-tee archivo	# recibe stdin, lo guarda en 'archivo' y pasa como stdout
->
->>
+
+
+
+
+
 	#echo 'Holis' > archivo.txt		#Agarra el stdout y lo mete en 'archivo.txt'
 	#echo 'otra vez!' >> archivo.txt	#Agarra el stdout y lo mete en 'archivo.txt' (sin sobreescribirlo)
 # -----------------------------------------------------------#
@@ -76,15 +124,15 @@ cal	#calendario cool
 
 uname #S.O
 
-#Info de archivos
-file <archivo>			#te muestra tipo de archivo
-stat <archivo>  		#te muestra el estado del archivo
-chmod <opcion> <archivo>	#cambiar modo de archivo 
-				#(<r>lectura/<w>escritura/<x>ejecucion)
 
-#Info del sistema
-ps	      # muestra procesos: -A  -s -ef
-kill <pID>    # mata proceso (pID)  OJOOO CON ESTO!!
+
+
+
+
+
+
+
+
 
 # -----------------------------------------------------------#
 #VARIABLES:
