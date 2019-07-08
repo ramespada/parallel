@@ -513,4 +513,3 @@ Note: This avoids typing  i , the last character, the text to insert, <ESC>,
   Modified for Vim by Bram Moolenaar.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
