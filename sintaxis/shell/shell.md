@@ -1,17 +1,18 @@
-#SHELL
+# SHELL
 
-> El shell o terminal, es el programa mediante el cual podemos interactuar con el sistema operativo a travez de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de Mac es identica, y Windows la esta empezando a adpotar.
+> El shell o terminal, es el programa que nos permite interactuar con el sistema operativo atraves de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de sistemas Mac es identica, y Windows la esta empezando a adpotar.
 
 ## PROMPT
 Cuando abras la terminal (con ``<ctrl>+T``) te vas a encontar con algo asi:
 ```bash
 	username@pcname:workdir$
 ```
-Esto se conoce como promt, va a antecer siempre al cursor, y nos da alguna informacion de cual es nuestro estado.
-Lo primero que dice nuestro prompt es quien es el usuario que va a ejecutar las instrucciones (username), luego del arroba dice desde que computadora (pcname), luego de los dos puntos dice la ubicacion en la que estamos dentro de pcname. y por ultimo un signo que indica los privilegios del usuario ($: usuario normal, #:superuser)
+
+Esto se conoce como **promt**, va a anteceder siempre al cursor, y nos da alguna informacion de cual es nuestro estado.
+Lo primero que dice nuestro prompt es quien es el usuario que va a ejecutar las instrucciones (username), luego del **@** dice desde que computadora (pcname), seguido de **:** dice el directorio en el que estamos ubicados dentro de pcname, y por ultimo un signo que indica los privilegios del usuario (**$**: usuario normal, **#**:superuser)
 
 ## NAVEGACIÓN:	
-Veamos como navegar en LINUX. Esto es ir de una carpeta a otra y revisar el contenido.
+Veamos como navegar en LINUX, esto es ir de una carpeta a otra y revisar el contenido.
 
 Para conocer la ubicacion absoluta en la que estamos (la del prompt es relativa a la carpeta principal del usuario) utilizamos:
 ```bash
@@ -20,68 +21,64 @@ pwd
 
 Si queremos ver el contenido de la carpeta entonces escribimos:
 ```bash
-ls	#muestra contenido del directorio probar: -a -l
+ls	#muestra contenido del directorio, probar con opciones: -a -l
 ```
 
 Para cambiar de directorio:
 ```bash
 cd	#cambio de directorio 
-cd ..	#cambio de directorio (a directorio madre)
+cd ..	#cambio de directorio (ir directorio madre)
 ```
 
 Para borrar la pantalla de comandos escribimos:
 ```bash
-	clear	#limpia pantalla
+	clear	#limpia pantalla (tambien se puede con <ctl>+l )
 ```
-	#<tab>		#autocomplete
-	#<ctl>+l 	#lo mismo que clear
 
 ## DIRECTORIOS Y ARCHIVOS
-Veamos como crear y borrar directorios y archivos:
+Veamos como crear/borrar directorios y archivos:
 
 Para crear/borrar una carpeta existen los siguientes comandos:
 ```bash
-
-mkdir <dir>		#crea directorio
-rmdir <dir>		#elimina directorio
+mkdir carpeta		#crea directorio
+rmdir carpeta		#elimina directorio
+rm -r carpeta		#elimina directorio y todo su contenido (OJO!!)
 ```
 
 Para crear/borrar un archivo:
 ```bash
-touch <arch>		#crea archivo/actualiza fecha de acceso
-rm <arch>		#borrar archivo
+touch archivo		#crea archivo/actualiza fecha de acceso
+rm archivo		#borrar archivo
 ```
 
 Otras acciones que podemos hacer con directorios y archivos son:
 ```bash
-cp <archivo> <archivo1>	#copiar archivo
-mv <archivo> <archivo1>	#mover archivo (tambien sirve para renombrar)
-ln -s <archivo> <link>	#crea "acceso directo"
+cp archivo archivo_copiado	#copiar archivo 
+mv archivo archivo_movido	#mover archivo (tambien sirve para renombrar)
+ln -s archivo link_archivo	#crea "acceso directo"
 ```
 
-##I/O
-Muchos de los comandos utilizados hasta ahora generan un output de algun tipo. 
-Estos outputs consisten en dos tipos:
+## I/O
+Muchos de los comandos utilizados hasta ahora generan un output de algun tipo. Estos outputs consisten en dos tipos:
 	- resultados que el programa esta diseñado a producir (*stdout*)
 	- mensajes de estado y error  (*stderr*)
 Por ejemplo en linux, ls manda sus  resultados a un archivo especial llamado stdout, y su status a otro llamado stderr. Ambos estan linkeados por default con la pantalla.
 Ademas muchos programas toman sus argumentos de un *stdin*, por default linkeado a las entradas desde el teclado.
 
-#Redireccion de stdout stdin
+## Redireccion de stdout stdin
 Las salidas de los comandos por default generalmente van a la pantalla, y los inputs se toman desde el teclado.
 Sin embargo podemos decidir donde llevar los stdin/stdout utilizamos comandos de redireccion:
 
 ```bash
 echo "Hola"				#stdin   a stdout
 read var				#stdin   a var
-cat > archivo.txt 			#stdin 	 a a archivo
-cat >> archivo.txt 			#stdin 	 a a archivo (lo agrega)
-cat archivo1.txt > archivo2.txt		#archivo a archivo
+cat > archivo 				#stdin 	 a archivo
+cat archivo >> archivo 			#archivo a archivo (lo agrega)
 cat animales | sort			#comando a comando		(pipe)
-echo "Hola" | tee archivo		#stdin a archivo y stdout	(tee )
+echo "Hola" | tee archivo		#stdin 	 a archivo y stdout	(tee )
+echo "Algo" | xargs mkdir		#xargs: ejecuta comandos de un standard input (los pasa a argumentos de comandos)
 ```
-
-##Archivos de texto:
+## Archivos de texto:
 Para ver el contenido de un archivo de texto tenemos varias opciones:
 ```bash
 cat archivo		#muestra todo el contenido como stdout
@@ -90,6 +87,8 @@ tail archivo		#ver ultima parte
 more archivo		#solo lectura (viejo)
 less archivo  			#version moderna de less
 ```
+
+### Editores de texto
 Si buscamos un editor de texto con mas funciones, algunos de los mas conocidos son:
 
 ```bash
@@ -97,13 +96,15 @@ vim archivo		#Editor de textos
 nano archivo		#Editor de textos
 emacs archivo		#Editor de textos
 ```
-Un editor *on the fly* muy importante y utilizado es:
+### Editores *al vuelo*
+Un editor *on the fly* muy utilizado es:
 
 ```bash
-sed 's/ioeu/a/g'	#Stream Editor
+sed 's/ioeu/a/g' archivo	#Stream Editor
 ```
-## Expresiones regulares
-Las expresiones regulares son formulas abstractas que representan patrones de texto con cierta estructura. Son muy utiles para buscar (y modificar) secuencias de texto dentro de un archivo que siga determinado patron.
+
+### Expresiones regulares
+Las expresiones regulares son formulas abstractas que representan patrones de texto que tienen cierta estructura. Son muy utiles para buscar (y modificar) secuencias de texto dentro de un archivo que siga determinado patron.
 
 Hay distintos comandos para trabajar con expresiones regulares, el mas conocido es ``grep``:
 ```bash
@@ -172,8 +173,7 @@ kill <PID>    # mata proceso (PID)  OJOOO CON ESTO!!
 killall	      #mata proceso por nombre
 ```
 
-
-##BUSQUEDA DE ARCHIVOS:
+## BUSQUEDA DE ARCHIVOS:
 Hay dos comandos principales para buscar archivos:
 
 El primero es ``locate``, busca archivos por su nombre:
@@ -191,14 +191,13 @@ find <patron> -delete/-ls/-print/-quit
 find <patron> -delete/-ls/-print/-quit -exec ls -l '{}' ';'
 ```
 
-##COMANDOS UTILES:
-<cursor> 		#arrriba revisa comandos anteriores , abajo revisa comandos posteriores 
-history
-<ctl>+r <pattern>	#busca ultimo comando en el historial con el pattern  
+## COMANDOS UTILES:
+### HISTORIAL DE COMANDOS
+Con las flechas de direccion (arriba y abajo) podemos revisar comandos ejecutados anteriormente. Una forma de ver todo lo que fue ejecutado es con el comando:``history``.
+Podemos buscar lineas ejecutadas anteriormente aprentando ```<ctl>+r ``  
 
 ## AYUDA:	
 help
-
 <comando> --help
 help grep	#informacion sobre uso del comando
 
@@ -210,34 +209,36 @@ apropos copy	#busca una funcion apropiada para "copy"
 man grep
 info grep
 
-##COMPRESOR DE ARCHIVOS:
-tar	# comprime (-c)
-	# extrae   (-x)
-	# muestra  (-tf)
+## COMPRESOR DE ARCHIVOS:
+Para comprimir se puede utilizar el programa ``tar``, cuyas opciones principales son ``-c`` para comprimir y ``-x`` para descomprimir. 
+```bash 
+tar -cvf comprimido.tar.gz carpeta 
+tar -xzvf comprimido.tar.gz
+```
 
-#OTROS:
+## OTROS:
+```bash
 uniq	#muestra filas unicas del archivo
 sort	#ordena archivos
 split	#divide archivos en partes iguales
 wc	#cuenta palabras del archivo/bits
 
-diff
-
+diff archivo1 archivo2	#muestra diferencias entre archivos
+```
 ##Manejo de paquetes
+```bash
 apt-get --install <programa>	#instalar programa
 	--update		#actualizar sistema
 	--upgrade		#
-# 
+``` 
 ##Ejecutables/programas:
+```bash
 ldd <ejecutable>		#lista las dependencias del ejecutable
 ./<ejecutable>			#forma típica de ejecución de binarios.
-
-##Info:
-date 	#fecha
+```
+## Informacion del sistema
+```bash date 	#fecha
 cal	#calendario cool
-
 uname 	#datos del sistema operativo
 env	#variables de ambiente
-
-#
-xargs			#Construye y ejecuta comandos de un standard input
+```
