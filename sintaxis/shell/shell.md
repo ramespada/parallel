@@ -1,0 +1,243 @@
+#SHELL
+
+> El shell o terminal, es el programa mediante el cual podemos interactuar con el sistema operativo a travez de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de Mac es identica, y Windows la esta empezando a adpotar.
+
+## PROMPT
+Cuando abras la terminal (con ``<ctrl>+T``) te vas a encontar con algo asi:
+```bash
+	username@pcname:workdir$
+```
+Esto se conoce como promt, va a antecer siempre al cursor, y nos da alguna informacion de cual es nuestro estado.
+Lo primero que dice nuestro prompt es quien es el usuario que va a ejecutar las instrucciones (username), luego del arroba dice desde que computadora (pcname), luego de los dos puntos dice la ubicacion en la que estamos dentro de pcname. y por ultimo un signo que indica los privilegios del usuario ($: usuario normal, #:superuser)
+
+## NAVEGACIÓN:	
+Veamos como navegar en LINUX. Esto es ir de una carpeta a otra y revisar el contenido.
+
+Para conocer la ubicacion absoluta en la que estamos (la del prompt es relativa a la carpeta principal del usuario) utilizamos:
+```bash
+pwd
+```
+
+Si queremos ver el contenido de la carpeta entonces escribimos:
+```bash
+ls	#muestra contenido del directorio probar: -a -l
+```
+
+Para cambiar de directorio:
+```bash
+cd	#cambio de directorio 
+cd ..	#cambio de directorio (a directorio madre)
+```
+
+Para borrar la pantalla de comandos escribimos:
+```bash
+	clear	#limpia pantalla
+```
+	#<tab>		#autocomplete
+	#<ctl>+l 	#lo mismo que clear
+
+## DIRECTORIOS Y ARCHIVOS
+Veamos como crear y borrar directorios y archivos:
+
+Para crear/borrar una carpeta existen los siguientes comandos:
+```bash
+
+mkdir <dir>		#crea directorio
+rmdir <dir>		#elimina directorio
+```
+
+Para crear/borrar un archivo:
+```bash
+touch <arch>		#crea archivo/actualiza fecha de acceso
+rm <arch>		#borrar archivo
+```
+
+Otras acciones que podemos hacer con directorios y archivos son:
+```bash
+cp <archivo> <archivo1>	#copiar archivo
+mv <archivo> <archivo1>	#mover archivo (tambien sirve para renombrar)
+ln -s <archivo> <link>	#crea "acceso directo"
+```
+
+##I/O
+Muchos de los comandos utilizados hasta ahora generan un output de algun tipo. 
+Estos outputs consisten en dos tipos:
+	- resultados que el programa esta diseñado a producir (*stdout*)
+	- mensajes de estado y error  (*stderr*)
+Por ejemplo en linux, ls manda sus  resultados a un archivo especial llamado stdout, y su status a otro llamado stderr. Ambos estan linkeados por default con la pantalla.
+Ademas muchos programas toman sus argumentos de un *stdin*, por default linkeado a las entradas desde el teclado.
+
+#Redireccion de stdout stdin
+Las salidas de los comandos por default generalmente van a la pantalla, y los inputs se toman desde el teclado.
+Sin embargo podemos decidir donde llevar los stdin/stdout utilizamos comandos de redireccion:
+
+```bash
+echo "Hola"				#stdin   a stdout
+read var				#stdin   a var
+cat > archivo.txt 			#stdin 	 a a archivo
+cat >> archivo.txt 			#stdin 	 a a archivo (lo agrega)
+cat archivo1.txt > archivo2.txt		#archivo a archivo
+cat animales | sort			#comando a comando		(pipe)
+echo "Hola" | tee archivo		#stdin a archivo y stdout	(tee )
+```
+
+##Archivos de texto:
+Para ver el contenido de un archivo de texto tenemos varias opciones:
+```bash
+cat archivo		#muestra todo el contenido como stdout
+head archivo		#ver primer parte
+tail archivo		#ver ultima parte
+more archivo		#solo lectura (viejo)
+less archivo  			#version moderna de less
+```
+Si buscamos un editor de texto con mas funciones, algunos de los mas conocidos son:
+
+```bash
+vim archivo		#Editor de textos
+nano archivo		#Editor de textos
+emacs archivo		#Editor de textos
+```
+Un editor *on the fly* muy importante y utilizado es:
+
+```bash
+sed 's/ioeu/a/g'	#Stream Editor
+```
+## Expresiones regulares
+Las expresiones regulares son formulas abstractas que representan patrones de texto con cierta estructura. Son muy utiles para buscar (y modificar) secuencias de texto dentro de un archivo que siga determinado patron.
+
+Hay distintos comandos para trabajar con expresiones regulares, el mas conocido es ``grep``:
+```bash
+	ls | grep *.txt
+```
+
+##PERMISOS y USUARIOS
+ Linux es un sistema operativo *multiusuario*, esto significa que muchos usuarios pueden estar utilizando la misma computadora en simultaneo.
+
+Cada usuario tiene un id, y tiene ciertos privilegios.
+```bash
+id 			#id de usuario
+users			#ver users
+```
+
+Para utilizar la terminal como otro usuario :
+```bash
+su - user2		#ingreso a la cuenta de user2 como si fuese el
+su user2		#ingreso a la cuenta de user2, pero como user actual
+```
+
+Para realizar operaciones como *super-user*:
+```bash
+sudo			#ejecutar comando como superuser
+```
+
+## Informacion de archivos
+file <archivo>			#te muestra tipo de archivo
+stat <archivo>  		#te muestra el estado del archivo
+```bash
+ls -l
+```
+
+```bash
+chmod <opcion> <archivo>	#cambiar modo de archivo 
+```
+	#{tipo}	{user} 	 {group}    {any1} 
+	#  -	r w x  -  r w x  -  r w x   <r>lectura/<w>escritura/<x>ejecucion
+	#(-dl)	4 2 1 	  4 2 1     4 2 1
+```bash
+chmod +x script.sh
+chown archivo
+chgrp archivo
+```
+
+## PROCESOS
+Los sistemas operativos basados en linux son *multi-task*, esto quiere decir que la secuencia de ejecucion de programas la realizan de tal forma que pareciera que se estan realizando multiples tareas en simultaneo (esto es estrictamente asi cuando la computadora posee varias unidades de procesamiento, que hoy en dia es lo mas comun):
+
+Hay distintos comandos que nos dan informacion de los procesos que se estan ejecutando en la computadora:
+```bash
+ps	      #muestra snapshot de procesos: -A  -s -ef
+top	      #muestra procesos en tiempo real
+jobs	      #muestra procesos activos
+free	      #memoria libre
+df	      #espacio libre en el disco rigido
+```
+
+Para dar/quitar prioridad a un proceso por el resto de los otros:
+```bash
+bg		#manda proceso al fondo
+fg		#manda proceso arriba
+```
+Para terminar un proceso:
+```bash
+kill <PID>    # mata proceso (PID)  OJOOO CON ESTO!!
+killall	      #mata proceso por nombre
+```
+
+
+##BUSQUEDA DE ARCHIVOS:
+Hay dos comandos principales para buscar archivos:
+
+El primero es ``locate``, busca archivos por su nombre:
+```bash
+locate <patron> 	#Busca archivos por nombre en una jerarquia de directorios
+```
+El comando ``find`` incorpora otras variables para la busqueda:
+```bash
+find <patron>   	#Busca en directorio archivos con patron y los lista.
+find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
+find <patron> \(-type d \) -and/-or/-not  \(-size M  \)
+find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
+find <patron> -delete/-ls/-print/-quit
+
+find <patron> -delete/-ls/-print/-quit -exec ls -l '{}' ';'
+```
+
+##COMANDOS UTILES:
+<cursor> 		#arrriba revisa comandos anteriores , abajo revisa comandos posteriores 
+history
+<ctl>+r <pattern>	#busca ultimo comando en el historial con el pattern  
+
+## AYUDA:	
+help
+
+<comando> --help
+help grep	#informacion sobre uso del comando
+
+whatis grep	#te dice que es es el comando
+type grep	#te dice que tipo de comando es
+which grep	#te dice donde se ubica el comando
+apropos copy	#busca una funcion apropiada para "copy"
+
+man grep
+info grep
+
+##COMPRESOR DE ARCHIVOS:
+tar	# comprime (-c)
+	# extrae   (-x)
+	# muestra  (-tf)
+
+#OTROS:
+uniq	#muestra filas unicas del archivo
+sort	#ordena archivos
+split	#divide archivos en partes iguales
+wc	#cuenta palabras del archivo/bits
+
+diff
+
+##Manejo de paquetes
+apt-get --install <programa>	#instalar programa
+	--update		#actualizar sistema
+	--upgrade		#
+# 
+##Ejecutables/programas:
+ldd <ejecutable>		#lista las dependencias del ejecutable
+./<ejecutable>			#forma típica de ejecución de binarios.
+
+##Info:
+date 	#fecha
+cal	#calendario cool
+
+uname 	#datos del sistema operativo
+env	#variables de ambiente
+
+#
+xargs			#Construye y ejecuta comandos de un standard input
