@@ -7,24 +7,26 @@
 ## ENTRAR/SALIR DE VIM
 Entrar a VIM: 
 ```bash
- vim archivo.txt <ENTER>
+ vim archivo.txt 
 ```
 
 Salir de VIM: 
-**:q! <ENTER>** 
+```vim
+:q! 
+```
 
 ## MODOS:
 VIM posee dos modos principales:
-- Modo normal: (*default*), se ingresa apretando <ESC>.
+- Modo normal: (*default*), se ingresa apretando \<ESC\>.
 - Modo edición:	Se ingresa aprendando alguno de las siguientes teclas: i/I/a/A/r/R/o/O
 
 ## MOVER EL CURSOR: 
 
-     ^
-     k		    
-< h  .  l >	
-     j		
-     v
+	     ^
+	     k		    
+	< h -|- l >	
+	     j		
+	     v
 
 ## INSERCIÓN:
 Modo INSERTAR:
@@ -56,10 +58,10 @@ En *modo normal*:
 
 ## GUARDAR:
 
-- Guardar y salir    **:wq \<ENTER\>**
-- Guardar sin salir  **:w  \<ENTER\>**	
-- Guardar en archivo **:w archivo \<ENTER\>**
-- Guardar pedazo     **:li,lf w archivo <ENTER>** donde li=linea inicial lf=linea final 
+- Guardar y salir    **:wq **
+- Guardar sin salir  **:w  **	
+- Guardar en archivo **:w archivo **
+- Guardar pedazo     **:li,lf w archivo ** donde li=linea inicial lf=linea final 
 
 ## NAVEGACION:
 - ``gg`` Ir a primer linea.
@@ -104,8 +106,8 @@ Hay expeciones, por ejemplo: ``dd``
 
 ## BUSQUEDA
 
-- **/patron\<ENTER\>**	busca el patron en el archivo (hacia adelante)
-- **?patron\<ENTER\>**	busca el patron en el archivo (hacia atras)
+- **/patron**	busca el patron en el archivo (hacia adelante)
+- **?patron**	busca el patron en el archivo (hacia atras)
 - **n** va al siguiente acierto		
 - **N**	va al anterior  acierto
 
@@ -120,7 +122,7 @@ Hay expeciones, por ejemplo: ``dd``
 
 ## COMANDOS EXTERNOS
 
-- **!\<comando\>\<ENTER\>** ejecuta un comando externo
+- **:!\<comando\>** ejecuta un comando externo
 
 Algunos ejemplos:
 - **:!pwd**
@@ -131,4 +133,4 @@ Algunos ejemplos:
 - **:r archivo**
 
 ## HELP
-- **help \<ENTER\>**
+- **help **
