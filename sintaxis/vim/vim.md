@@ -14,29 +14,34 @@ Salir de VIM:
 **:q! <ENTER>** 
 
 ## MODOS:
+VIM posee dos modos principales:
 - Modo normal: (*default*), se ingresa apretando <ESC>.
 - Modo edición:	Se ingresa aprendando alguno de las siguientes teclas: i/I/a/A/r/R/o/O
 
 ## MOVER EL CURSOR: 
 
-	     ^
-	     k		    
-        < h  .  l >	
-	     j		
-	     v
+     ^
+     k		    
+< h  .  l >	
+     j		
+     v
 
 ## INSERCIÓN:
+Modo INSERTAR:
 - ``i`` Ingresa a modo EDICION desde la posicion del cursor. (insert)
 - ``I`` Ingresa a modo EDICION desde el principio de linea.
+Modo AGREGAR:
 - ``a`` Ingresa a modo EDICION desde la posicion siguiente al cursor. (append)
 - ``A`` Ingresa a modo EDICION desde el final de la linea.
+
+Modo ABRIR LINEA:
 - ``o`` Ingresa a modo EDICION desde inicio de fila anterior.
 - ``O`` Ingresa a modo EDICION desde inicio de fila posterior.		
 
 ## DELECIÓN:
-En modo edición, se borra como normalmente con las teclas: *<supr>* y *<del>*.
+En *modo edición*, se borra como normalmente con las teclas: *<supr>* y *<del>*.
 
-En modo normal:
+En *modo normal*:
 - ``x`` Borra caracter actual.
 - ``X`` Borra caracter anterior.
 - ``d <dirección>`` Borra caracter.
@@ -51,10 +56,10 @@ En modo normal:
 
 ## GUARDAR:
 
-- Guardar y salir    **:wq <ENTER>**
-- Guardar sin salir  **:w  <ENTER>**	
-- Guardar en archivo **:w <archivo> <ENTER>**
-- Guardar pedazo     **:li,lf w <archivo> <ENTER>** donde li=linea inicial lf=linea final 
+- Guardar y salir    **:wq \<ENTER\>**
+- Guardar sin salir  **:w  \<ENTER\>**	
+- Guardar en archivo **:w archivo \<ENTER\>**
+- Guardar pedazo     **:li,lf w archivo <ENTER>** donde li=linea inicial lf=linea final 
 
 ## NAVEGACION:
 - ``gg`` Ir a primer linea.
@@ -79,7 +84,7 @@ Presionando un numero (n) antes de un comando indicamos que tal comando sea repe
 Hay expeciones, por ejemplo: ``dd``
 		
 ## COPY/PASTE:
-- ``y``	copiar 
+- ``y``	copiar (*yank*)
 - ``Y``	copiar linea
 - ``p``	pegar a continuación
 - ``P``	pegar antes de cursor
@@ -95,11 +100,12 @@ Hay expeciones, por ejemplo: ``dd``
 - **C**	cambiar hasta final de la linea (igual que c$)
 
 ## LOCALIZACION Y ESTADO
-- **<ctrl>+g** 	muestra posicion relativa del cursor en el archivo.
+- **ctrl+g** 	muestra posicion relativa del cursor en el archivo.
 
 ## BUSQUEDA
-- **/<patron><ENTER>**	busca el patron en el archivo (hacia adelante)
-- **?<patron><ENTER>**	busca el patron en el archivo (hacia atras)
+
+- **/patron\<ENTER\>**	busca el patron en el archivo (hacia adelante)
+- **?patron\<ENTER\>**	busca el patron en el archivo (hacia atras)
 - **n** va al siguiente acierto		
 - **N**	va al anterior  acierto
 
@@ -107,22 +113,22 @@ Hay expeciones, por ejemplo: ``dd``
 - **%**	te lleva donde esta el par que corresponde con el ``()``,``[]``,``{}``		
 ## BUSCAR Y REEMPLAZAR:
 
-- **:s/<old>/<new>** subsituye 'new' por 'old' en la primer aparicion en linea actual
-- **:s/<old>/<new>/g** subsituye 'new' por 'old' en la linea actual
-- **:%s/<old>/<new>/g**	subsituye 'new' por 'old' en todo el documento
-- **:%s/<old>/<new>/gc** subsituye 'new' por 'old' en todo el documento (pide confirmacion en cada reemplazo)
+- **:s/old/new** subsituye 'new' por 'old' en la primer aparicion en linea actual
+- **:s/old/new/g** subsituye 'new' por 'old' en la linea actual
+- **:%s/old/new/g**	subsituye 'new' por 'old' en todo el documento
+- **:%s/old/new/gc** subsituye 'new' por 'old' en todo el documento (pide confirmacion en cada reemplazo)
 
 ## COMANDOS EXTERNOS
 
-- **!<comando><ENTER>** ejecuta un comando externo
+- **!\<comando\>\<ENTER\>** ejecuta un comando externo
 
 Algunos ejemplos:
 - **:!pwd**
 - **:!ls**
-- **:!rm <archivo>**
+- **:!rm archivo**
 
 ## CONCATENAR ARCHIVOS
-- **:r <archivo>**
+- **:r archivo**
 
 ## HELP
-- **help <ENTER>**
+- **help \<ENTER\>**
