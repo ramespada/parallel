@@ -7,7 +7,7 @@
 ## ENTRAR/SALIR DE VIM
 Entrar a VIM: 
 ```bash
- vim archivo.txt 
+vim archivo.txt 
 ```
 
 Salir de VIM: 
@@ -22,11 +22,11 @@ VIM posee dos modos principales:
 
 ## MOVER EL CURSOR: 
 
-	     ^
-	     k		    
+	     ^    
+	     k    
 	< h -|- l >	
-	     j		
-	     v
+	     j    
+	     v     
 
 ## INSERCIÓN:
 Modo INSERTAR:

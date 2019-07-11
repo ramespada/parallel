@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#ctl + T
 #==  NAVEGACION  ==
 pwd
 ls
@@ -21,13 +21,12 @@ rmdir carpeta2
 ls
 cd carpeta1
 ls
+mkdir carpeta
 touch archivo1
 touch archivo2
 touch archivo3
 ls
 rm archivo3
-ls
-mkdir carpeta
 ls
 cp archivo2 carpeta/archivo2
 ls carpeta
@@ -37,9 +36,9 @@ ls carpeta
 mv archivo1 archivo
 ls
 ln -s archivo archivo
-rm carpeta
+rm carpeta	#Error!
 rm -r carpeta
-
+ls
 #==   I/O   ===
 echo "Holaa"
 cat
@@ -68,10 +67,11 @@ cat archivo_animales | sort
 echo "Hola, como va?" | tee archivo
 cat archivo
 
-echo "archivo" | rm
-
+echo "archivo" | rm 	#Error!
 echo "archivo" | xargs rm
 
+#Ver contenido de archivo de texto
+cat archivo_animales2
 head archivo_animales2
 tail archivo_animales2
 
@@ -135,14 +135,11 @@ help ls
 
 apropos "viewer"
 
-
 #== misc ==
 
 #Instalar programas:
 apt-get install PACKAGE
 
-
 #Comprimir / Descomprimir
 tar -cvf carpeta.tar carpeta
-
 tar -xvf carpeta.tar

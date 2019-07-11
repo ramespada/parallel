@@ -249,6 +249,7 @@ Para comprimir se puede utilizar el programa ``tar``, cuyas opciones principales
  ldd <ejecutable>		#lista las dependencias del ejecutable
  ./<ejecutable>			#forma típica de ejecución de binarios.
 ```
+
 ### Informacion del sistema
 ```bash
  date 	#fecha
