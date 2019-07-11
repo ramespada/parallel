@@ -3,7 +3,7 @@
 > El shell o terminal, es el programa que nos permite interactuar con el sistema operativo atraves de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de sistemas Mac es identica, y Windows la esta empezando a adpotar.
 
 ## PROMPT
-Cuando abras la terminal (con ``<ctrl>+T``) te vas a encontar con algo asi:
+Cuando abras la terminal (con ``ctrl``+``T``) te vas a encontar con algo asi:
 ```bash
    username@pcname:workdir$
 ```
@@ -113,6 +113,24 @@ Hay distintos comandos para trabajar con expresiones regulares, el mas conocido 
 	ls | grep *.txt
 ```
 
+## BUSQUEDA DE ARCHIVOS:
+Hay dos comandos principales para buscar archivos:
+
+El primero es ``locate``, busca archivos por su nombre:
+```bash
+locate <patron> 	#Busca archivos por nombre en una jerarquia de directorios
+```
+El comando ``find`` incorpora otras variables para la busqueda:
+```bash
+ find <patron>   	#Busca en directorio archivos con patron y los lista.
+ find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
+ find <patron> \(-type d \) -and/-or/-not  \(-size M  \)
+ find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
+ find <patron> -delete/-ls/-print/-quit
+ 
+ find <patron> -delete/-ls/-print/-quit -exec ls -l '{}' ';'
+```
+
 ##PERMISOS y USUARIOS
  Linux es un sistema operativo *multiusuario*, esto significa que muchos usuarios pueden estar utilizando la misma computadora en simultaneo.
 
@@ -181,24 +199,6 @@ Para terminar un proceso:
  killall	      #mata proceso por nombre
 ```
 
-## BUSQUEDA DE ARCHIVOS:
-Hay dos comandos principales para buscar archivos:
-
-El primero es ``locate``, busca archivos por su nombre:
-```bash
-locate <patron> 	#Busca archivos por nombre en una jerarquia de directorios
-```
-El comando ``find`` incorpora otras variables para la busqueda:
-```bash
- find <patron>   	#Busca en directorio archivos con patron y los lista.
- find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
- find <patron> \(-type d \) -and/-or/-not  \(-size M  \)
- find <patron> -type d/f/l -size b/c/w/k/M/G -name "pattern"
- find <patron> -delete/-ls/-print/-quit
- 
- find <patron> -delete/-ls/-print/-quit -exec ls -l '{}' ';'
-```
-
 ## COMANDOS UTILES:
 ### HISTORIAL DE COMANDOS
 Con las flechas de direccion (arriba y abajo) podemos revisar comandos ejecutados anteriormente. Una forma de ver todo lo que fue ejecutado es con el comando:``history``.
@@ -219,6 +219,7 @@ Podemos buscar lineas ejecutadas anteriormente aprentando ```<ctl>+r ``
  info grep
 ```
 
+
 ## COMPRESOR DE ARCHIVOS:
 Para comprimir se puede utilizar el programa ``tar``, cuyas opciones principales son ``-c`` para comprimir y ``-x`` para descomprimir. 
 ```bash 
@@ -226,21 +227,23 @@ Para comprimir se puede utilizar el programa ``tar``, cuyas opciones principales
  tar -xzvf comprimido.tar.gz
 ```
 
-## OTROS:
-```bash
- uniq	#muestra filas unicas del archivo
- sort	#ordena archivos
- split	#divide archivos en partes iguales
- wc	#cuenta palabras del archivo/bits
-
- diff archivo1 archivo2	#muestra diferencias entre archivos
-```
 ### Manejo de paquetes
 ```bash
  apt-get --install <programa>	#instalar programa
 	--update		#actualizar sistema
 	--upgrade		#
 ``` 
+
+## OTROS:
+```bash
+ sort lista	#ordena archivos
+ uniq lista	#muestra filas unicas del archivo
+ split archivo	#divide archivos en partes iguales
+ wc archivo	#cuenta palabras del archivo/bits
+
+ diff archivo1 archivo2	#muestra diferencias entre archivos
+```
+
 ### Ejecutables/programas:
 ```bash
  ldd <ejecutable>		#lista las dependencias del ejecutable
