@@ -1,13 +1,44 @@
 #!/bin/bash
 #La terminal es un programa que nos permite interactuar con el sistema operativo en tiempo real atraves de comandos que escribimos con el teclado en la pantalla.
-#PROMPT
+
+#===    BASICO    ===
+#ABRIR TERMINAL : 
+# 	ctl + alt + T
+
+#PROMPT:
 # username@pcname:dir$
 
-#ctl + T
 date
 cal
 
+uname
+
+uname -s
+uname -n
+uname -r
+uname -v
+uname -o
+
+uname -a
+
+uname --help
+
 clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #==  NAVEGACION  ==
 pwd
 ls
@@ -20,7 +51,15 @@ cd Desktop
 cd ..
 cd ../..
 ls
+cd /
+cd ~
 cd usr/ram
+
+
+
+
+
+
 
 
 
@@ -35,8 +74,10 @@ cd usr/ram
 mkdir carpeta1
 mkdir carpeta2
 ls
+
 rmdir carpeta2
 ls
+
 cd carpeta1
 ls
 mkdir carpeta
@@ -44,18 +85,25 @@ touch archivo1
 touch archivo2
 touch archivo3
 ls
+
 rm archivo3
 ls
 cp archivo2 carpeta/archivo2
 ls carpeta
+
 mv archivo2 carpeta/archivo2
 ls 
 ls carpeta
 mv archivo1 archivo
 ls
+
 rm carpeta	#Error!
 rm -r carpeta
 ls
+
+
+
+
 
 
 
@@ -72,17 +120,17 @@ echo "Holaa"
 cat
 Hola, todo bien?
 #	Redireccion
-cat > archivo_animales
+cat > animales
 	topo
 	pez
 #ctrl + C/D
-cat archivo_animales
-cat archivo_animales > archivo_animales2
-cat >> archivo_animales2
+cat animales
+cat animales > animales2
+cat >> animales2
 	oso
 	leon
-cat archivo_animales2
-diff archivo_animales1 archivo_animales2
+cat animales2
+diff animales animales2
 
 cat archivo_animales | sort
 echo "Hola, como va?" | tee archivo
@@ -91,7 +139,22 @@ cat archivo
 echo "archivo" | rm 	#Error!
 echo "archivo" | xargs rm
 
-#Ver contenido de archivo de texto
+
+
+
+
+
+
+
+
+
+
+
+
+
+##==	EDICION DE TEXTOS ==
+
+#	Ver contenido de archivo de texto
 cat archivo_animales2
 head archivo_animales2
 tail archivo_animales2
@@ -99,20 +162,32 @@ tail archivo_animales2
 more ../archivo_largo
 less ../archivo_largo
 
-##==	Editor de texto ==
+#	Editores avanzados
 vim archivo    
 nano archivo
 
 #	Editor al vuelo:
-sed ../archivo_largo s/Hola/Chau/g
+sed animales s/a/u/g 
 
-#	Expresiones regulares
-grep PURPOSE src/aermod/*
 
-#Links 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##===   LINKs   ===
 ln archivo linkDuro
 ln -s archivo linkSimbolico
-vim archivo     #escribir algo
+vim archivo       #escribir algo
 vim linkDuro
 vim linkSimbolico #escribir algo
 rm archivo
@@ -130,17 +205,46 @@ cat linkSimbolico
 
 
 
+#=== EXPRESIONES REGULARES ===
+grep PURPOSE src/aermod/*
 
 
 
-#==  BUSQUEDA   ==
+
+
+
+
+
+
+
+
+
+
+
+
+#===   BUSQUEDA   ===
 locate LinuxCommand
 
 find ~ -name *LinuxCom*
 find ~ -type d -name *carp*
 find ~ -size +10b -type d -name *carp*
 
-#==  PERMISOS   ==
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#===  PERMISOS   ===
 cd .. 
 ls -l
 chmod +x script.sh
@@ -167,7 +271,7 @@ chmod +x script.sh
 
 
 
-#==  PROCESOS   ==
+#===  PROCESOS   ===
 #	procesos:
 ps
 ps -a
@@ -201,18 +305,14 @@ df
 
 
 
-#==  AYUDA   ==
+#===  EXPLORAR NUEVOS COMANDOS  ===
 ls /bin
 ls /usr/bin
 
-type echo
-which echo
-whatis echo
-man echo
-info echo
-help ls
+whatis ping
 
 apropos "viewer"
+#(GOOGLE)
 
 
 
@@ -237,13 +337,16 @@ apropos "viewer"
 
 
 
-#== misc ==
+#=== misc ===
 
+	#PERMISOS
+	#PACKAGE MANAGEMENT
+	#STORAGE MEDIA
+	#NETWORKING
+	#COMPRESSION & BACKUP
+	
+	#> TEXT EDITION 	(vim)
+	#> REGEX		(regexp)
+	#> BASH SCRIPTING	(bash)
+	#> COMPILACION		(make)
 
-
-#Instalar programas:
-apt-get install PACKAGE
-
-#Comprimir / Descomprimir
-tar -cvf carpeta.tar carpeta
-tar -xvf carpeta.tar

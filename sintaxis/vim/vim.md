@@ -18,7 +18,7 @@ Salir de VIM:
 ## MODOS:
 VIM posee dos modos principales:
 - Modo normal: (*default*), se ingresa apretando \<ESC\>.
-- Modo edición:	Se ingresa aprendando alguno de las siguientes teclas: i/I/a/A/r/R/o/O
+- Modo edición/escritura: Se ingresa aprendando alguno de las siguientes teclas: i/I/a/A/r/R/o/O
 
 ## MOVER EL CURSOR: 
 

@@ -1,6 +1,6 @@
 # SHELL
 
-> El shell o terminal, es el programa que nos permite interactuar con el sistema operativo atraves de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de sistemas Mac es identica, y Windows la esta empezando a adpotar.
+> El shell o terminal, es el programa que nos permite interactuar en tiempo real, interactivamente con el sistema operativo atraves de entradas que damos desde el teclado. Casi todos las distros de Linux la sintaxis para los comandos de terminal se basan en un proyecto GNU llamado **bash**. La sintaxis de sistemas Mac es identica, y Windows la esta empezando a adpotar.
 
 ## PROMPT
 Cuando abras la terminal (con ``ctrl``+``T``) te vas a encontar con algo asi:
