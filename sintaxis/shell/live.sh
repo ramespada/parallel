@@ -1,17 +1,35 @@
 #!/bin/bash
+#La terminal es un programa que nos permite interactuar con el sistema operativo en tiempo real atraves de comandos que escribimos con el teclado en la pantalla.
+#PROMPT
+# username@pcname:dir$
+
 #ctl + T
+date
+cal
+
+clear
 #==  NAVEGACION  ==
 pwd
 ls
-ls -a
+ls Desktop
 ls -l
+ls -a
 
-clear
 
 cd Desktop
 cd ..
 cd ../..
 ls
+cd usr/ram
+
+
+
+
+
+
+
+
+
 
 #==  DIRs / FILES  ==
 mkdir carpeta1
@@ -35,26 +53,29 @@ ls
 ls carpeta
 mv archivo1 archivo
 ls
-ln -s archivo archivo
 rm carpeta	#Error!
 rm -r carpeta
 ls
+
+
+
+
+
+
+
+
+
 #==   I/O   ===
+#Todos los comandos toman un input, y devuelven un output.
+#Vamos a llamar a los inputs que damos con el teclado stdin y a los outputs que se muestran en pantalla stdout
 echo "Holaa"
 cat
 Hola, todo bien?
 #	Redireccion
 cat > archivo_animales
-	perro
-	gato
-	elefante
-	jirafa
-	mariposa
 	topo
-	conejo
-	cangrejo
 	pez
-
+#ctrl + C/D
 cat archivo_animales
 cat archivo_animales > archivo_animales2
 cat >> archivo_animales2
@@ -78,14 +99,39 @@ tail archivo_animales2
 more ../archivo_largo
 less ../archivo_largo
 
-#	Editor de texto
-vim ../archivo_largo
+##==	Editor de texto ==
+vim archivo    
+nano archivo
 
 #	Editor al vuelo:
 sed ../archivo_largo s/Hola/Chau/g
 
 #	Expresiones regulares
-cat ../archivo_largo | grep 
+grep PURPOSE src/aermod/*
+
+#Links 
+ln archivo linkDuro
+ln -s archivo linkSimbolico
+vim archivo     #escribir algo
+vim linkDuro
+vim linkSimbolico #escribir algo
+rm archivo
+cat linkDuro
+cat linkSimbolico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #==  BUSQUEDA   ==
 locate LinuxCommand
@@ -99,6 +145,27 @@ cd ..
 ls -l
 chmod +x script.sh
 ./script.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #==  PROCESOS   ==
 #	procesos:
@@ -119,12 +186,24 @@ bg PID
 kill PID
 killall proceso 
 #ctl+C si esta en el fg
-
 #	memoria:
 free
 df
 
+
+
+
+
+
+
+
+
+
+
+
 #==  AYUDA   ==
+ls /bin
+ls /usr/bin
 
 type echo
 which echo
@@ -135,7 +214,32 @@ help ls
 
 apropos "viewer"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #== misc ==
+
+
 
 #Instalar programas:
 apt-get install PACKAGE
