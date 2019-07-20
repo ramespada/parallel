@@ -31,14 +31,6 @@ clear
 
 
 
-
-
-
-
-
-
-
-
 #==  NAVEGACION  ==
 pwd
 ls
@@ -54,6 +46,9 @@ ls
 cd /
 cd ~
 cd usr/ram
+
+
+
 
 
 
@@ -104,15 +99,6 @@ ls
 
 
 
-
-
-
-
-
-
-
-
-
 #==   I/O   ===
 #Todos los comandos toman un input, y devuelven un output.
 #Vamos a llamar a los inputs que damos con el teclado stdin y a los outputs que se muestran en pantalla stdout
@@ -147,12 +133,7 @@ echo "archivo" | xargs rm
 
 
 
-
-
-
-
-
-##==	EDICION DE TEXTOS ==
+#===	EDICION DE TEXTOS ===
 
 #	Ver contenido de archivo de texto
 cat archivo_animales2
@@ -184,6 +165,8 @@ sed animales s/a/u/g
 
 
 
+
+
 ##===   LINKs   ===
 ln archivo linkDuro
 ln -s archivo linkSimbolico
@@ -191,6 +174,9 @@ vim archivo       #escribir algo
 vim linkDuro
 vim linkSimbolico #escribir algo
 rm archivo
+cat linkDuro
+cat linkSimbolico
+vim archivo #escribir algo
 cat linkDuro
 cat linkSimbolico
 
@@ -205,8 +191,35 @@ cat linkSimbolico
 
 
 
+
+
+
+
+
+
+
+
+
+
 #=== EXPRESIONES REGULARES ===
+ls /bin | grep zip
+
+cat ../src/aermod/aermod.f
+wc ../src/aermod/aermod.f
 grep PURPOSE src/aermod/*
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -228,6 +241,18 @@ locate LinuxCommand
 find ~ -name *LinuxCom*
 find ~ -type d -name *carp*
 find ~ -size +10b -type d -name *carp*
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -271,6 +296,13 @@ chmod +x script.sh
 
 
 
+
+
+
+
+
+
+
 #===  PROCESOS   ===
 #	procesos:
 ps
@@ -283,9 +315,9 @@ xlogo
 xlogo &
 ps
 jobs
-fg PID
+fg jobID
 #stop job: ctrl+z
-bg PID
+bg jobID
 
 kill PID
 killall proceso 
@@ -313,6 +345,8 @@ whatis ping
 
 apropos "viewer"
 #(GOOGLE)
+
+
 
 
 
