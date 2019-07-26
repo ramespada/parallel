@@ -2,6 +2,11 @@
  /*
   Multilinea comentario
   
+
+Compilar:
+	g++ script.cpp
+Correr:
+	./a.out
   */
 
 #include<iostream>
