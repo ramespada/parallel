@@ -40,5 +40,6 @@ int main(){
 	stringstream(mi_string) >> precio;
 
 	cout<<"Precio final: "<< precio*cantidad <<endl;
+
 return 0;
 }

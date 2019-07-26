@@ -1,39 +1,38 @@
 #include<iostream>
 #include<vector>
-#include<string>
-#include<fstream>
 
 using namespace std; 
 
+//CONTROLADORES DE FLUJO:
 
 int main(){ 
-
-//CONTROLADORES DE FLUJO:
+	int n;
+        cout << "Inserte un numero:";
+	cin>> n;
 //	IF:
-    if ( <condicion> ){
-      <Hace algo>
+    if ( n%2 == 0 ){
+      cout << "n es par."<<endl;
     }
-    else if( <otra condicion> ){
-      hace otra cosa
-      }
-    else( <En cualquier otro caso hace esto.> )
+    else if( n%2 != 0 ){
+      cout << "n es impar."<<endl;
+    }
+    else( cerr<<"input invalido!");
 
 //	FOR:
     char palabra[5] = {'c','i','n','c','o'};
     int i;
     for (int i=0;i<5;i++){
-     cout<< palabra[i];
+     cout<< palabra[i]<<endl;
      }
     cout<<endl;
 
 
-//	WHILE:   
-  WHILE( <CONDICION> ){
-    HACER ALGO..  
-  }
- 
-
-
+//	WHILE:
+	n=0;
+  	while(n<=10){
+		cout<< n<<endl;
+		++n;
+	 }
 
   return 0;
 }
