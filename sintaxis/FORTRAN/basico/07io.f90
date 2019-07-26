@@ -7,16 +7,6 @@
   
   namelist/mi_lista/nombre,apellido,altura, peso,mensaje
 
-  !STDIN/STDOUT
-   write(*,*) 'Esto es un stdout'
-   print*, 'Dame un stdin:'; read(*,*) mensaje
-   
-  !FMT:
-   write(*,'("Mi nombre es:" a8", y tengo" i5 "años."/)') nombre,edad
-
-   print*,"Ingresa tu apellido:"; read(*,'(a10)') apellido
-   write(*,'("Mi nombre es:" a8 a8/)') nombre,apellido
-
   !OPEN / CLOSE
    open(unit=1,FILE="archivo.txt",STATUS="NEW",ACTION="WRITE")
    write(1,*) "Hola, ..dejo este mensaje."

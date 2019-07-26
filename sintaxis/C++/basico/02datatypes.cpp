@@ -2,48 +2,67 @@
 #include<string>
 #include<cmath>
 
-using namespace std; //Pa no esecificar c/vez que uso una fun de una lib "std::funcion"
+using namespace std; //Esto es para no especificar c/vez que uso una fun de una lib "std::funcion"
+
+//Constantes
+const double pi=3.1415926;	
 
 int main(){ 
 
-//D A T A    T Y P E S:
+//===   D A T A    T Y P E S   ===
 
 	//BOOLEANOs:
     bool p=true,q;
-    q=false;
+    q=false;				//asignacion
 
-    cout << p    << endl; 
-    cout << ((p|q) & !q)  << endl; //op. logicas (!:not  &:and  |:or)
+    cout << p    	<< endl; 
+    cout <<    ! q 	<< endl; 	//op. logicas (!:not  &:and  |:or)
+    cout << (p & q)  	<< endl; 	//op. logicas (!:not  &:and  |:or)
+    cout << (p | q)     << endl; 	//op. logicas (!:not  &:and  |:or)
+    cout << (p ^ q)     << endl; 	//op. logicas (!:not  &:and  |:or)
 
 	//ENTEROs
     int n=-4,m;
     m=3;
 
-    cout << (n/2+m*3)  	     << endl; //aritmeticas      (+  - * /)
-    cout << (n == m)         << endl; //op. relacionales (== != > < >= <= )
-    cout << abs(n)     	     << endl; //modulo 
-    cout << n%m		     << endl; //op. modular
+    cout << (n/2+m*3)  	     << endl; //aritmeticas ( +  -  *  /  )
+    cout << n%m		     << endl; //op. modular (%)
+    cout << abs(n)     	     << endl; //modulo 	(requiere cmath)
+    cout << (n == m)         << endl; //op. relacionales (==  !=  >  <  >=  <= )
 
 	//PUNTO FLOTANTE:
-    float  x = 3.141592;
-    double xx= 1.123123123123;
+    float  x = 3.141592, y=6.02e23f;
+    double xx= 1.123123123123,yy=1.123L;
 
-    cout << pow(x,2)	     << endl; //potencia
-    cout << sqrt(xx)	     << endl; //raiz cuadrada
+    cout << pow(x,2)	     << endl; //potencia (cmath)
+    cout << sqrt(xx)	     << endl; //raiz cuadrada (cmath)
 
 	//CHARACTER
     char   letra='a';
  
 	//STRINGS	   Usando el modulo <string>
-    string minombre= "Ramiro";   
-
- 
+    string mistring= "Esto es un string";   
+    cout<< mistring << endl;        //retorna 1
+ 	// codigos especiales:
+	// \n  newline  \t  tab  \v  vtab  \b  espacio
+	
 // Casting":  Cuando queremos cambiar el tipo de dato que resulta de una opeación:
   int a=3, b=2;
   cout<< 3/2 << endl;        //retorna 1
   cout<<(float) 3/2 << endl; //retorna 1.5
   
+//deduccion de type
+//  int fulano=10;
+// auto mengano = fulano;
+//  decltype(fulano) mengano;
 
+
+// Contracciones:
+	n=3;
+	++n;
+	n+=1;
+	m=n++;	//m=4 n=3
+	m=++n;	//m=4 n=4
 
  return 0;
 }
