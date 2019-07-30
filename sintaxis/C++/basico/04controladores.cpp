@@ -1,5 +1,4 @@
 #include<iostream>
-#include<vector>
 
 using namespace std; 
 
@@ -9,6 +8,7 @@ int main(){
 	int n;
         cout << "Inserte un numero:";
 	cin>> n;
+
 //	IF:
     if ( n%2 == 0 ){
       cout << "n es par."<<endl;
@@ -28,11 +28,15 @@ int main(){
 
 
 //	WHILE:
-	n=0;
-  	while(n<=10){
-		cout<< n<<endl;
-		++n;
+	cout << "Adivina que numero estoy pensando:"; cin>> n; 
+  	while(n != 7){
+	        cout << "No, inserte otro numero:"; cin>> n; 
 	 }
+
+	// Conditional ternary operator:  (?)
+	string mensaje;
+	mensaje = (n==7)? "Adivinaste!" : "Perdiste!";
+	cout<< mensaje << endl; 
 
   return 0;
 }

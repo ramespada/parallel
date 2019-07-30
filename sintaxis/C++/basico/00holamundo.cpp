@@ -1,10 +1,9 @@
-#include<iostream>
-
+#include<stdio.h>
 int main(){ 
 
- std::cout << "Hola mundo!"<<std::endl; 
-
-  return 0;
+ 	printf("Hola wacho!\n");
+ 
+ return 0;
 }
 /*
 Compilar:
