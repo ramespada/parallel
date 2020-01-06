@@ -21,10 +21,13 @@ _start:           ;tell linker entry point
   mov eax, 4
   mov ebx, 1
   int 0x80
-  mv ecx, 0xa
-   mov eax,1      ;(sys_exit)
-   mov ebx,0      ;error id
-   int 0x80       ;call kernel
+
+  mov ecx, 0xa
+  int 0x80  
+
+  mov eax,1      ;(sys_exit)
+  mov ebx,0      ;error id
+  int 0x80       ;call kernel
 
 section .bss
   respuesta: resb 255

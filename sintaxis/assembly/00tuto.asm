@@ -1,19 +1,55 @@
 ;------------------------------
-; Assembly (for Linux kernel)
+; Assembly (for Linux kernel en procesadores intel x86)
 ;------------------------------
+;Caracteristicas:
+;	Bajo nivel de abstraccion.
+;	Mayor control 
+;	Mas codigo
+;	Poco portable (depende de la arquitectura de la cpu)
+;	
+
+
+;Registros: memoria de cpu.
+;
+; Registros 
+;	EAX
+;	EBX
+;	ECX
+;	EDX	
+; Registros especiales:
+;	ESI
+;	EDI
+
+
+;Stack
+;	LIFO data structure
+;	Es un array en memoria
+;	Stack Pointer
+;	Random access
+;	
+
+;Compilacion:
+;sudo apt install nasm
+;nasm -f elf test.asm
+;ld test.o -o test
+
+global _start
+_start:
 
 ;Comandos principales:
 ;MOV <var>, <value>   
 ;JMP
-;POP
 ;INT
 ;PUSH
+;POP
 
 ;Subrutinas:
 ;CALL
 ;RET
 
 
+
+;Operaciones de sistema:
 ;eax (OPCODE, operation code)
 ;             |eax |ebx                   |ecx            |edx         esi edi|def
 ;0:sys_restart|0x00|                      |-              |                   |kernel/signal.c:2058
@@ -44,5 +80,10 @@ section .bbs:
 
 ;DATA:
 section .data:
+
+
+
+
+;Instruction pointer
 
 
