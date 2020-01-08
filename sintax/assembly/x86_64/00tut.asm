@@ -20,7 +20,7 @@
 ;cuando el programa hace una llamada al kernel del SO
 ;
 ;arg1 	arg2	arg3	arg4	arg5	arg6
-rax	rdi	rsi	rdx	
+;rax	rdi	rsi	rdx	
 
 ;sys_write:
 ;	file descriptor 0(stdin) 1(stdout) 2(stderr)

@@ -1,3 +1,4 @@
+#include<stdio.h>
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -24,7 +25,6 @@ int main(){
 	//ENTEROs
     int n=-4,m;
     m=3;
-
     cout << (n/2+m*3)  	     << endl; //aritmeticas ( +  -  *  /  )
     cout << n%m		     << endl; //op. modular (%)
     cout << abs(n)     	     << endl; //modulo 	(requiere cmath)

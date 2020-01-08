@@ -5,7 +5,7 @@ using namespace std;
 
 	//Operador "address-de"  	(&)
 	//Operador "derreferenciador"   (*)
-
+    
 
 //POINTER
 
@@ -22,6 +22,8 @@ int main(){
 	cout<< valor   <<endl;
 	cout<< address <<endl;
 
+	cout <<"Tamaño bits:" << sizeof(valor) <<". Memory address: "<< &valor <<". Valor: "<< valor << endl;
+	cout <<"Tamaño bits:" << sizeof(address) <<". Valor: "<< *address  <<". Memory address: "<<address<< endl;
 
 
 
