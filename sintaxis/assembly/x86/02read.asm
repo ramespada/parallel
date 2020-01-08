@@ -33,5 +33,5 @@ section .bss
   respuesta: resb 255
 
 section .data:
-  msg db 'ola ameo! decime como te llamas',0xa    ;our dear string
+  msg db 'ola ameo! decime como te llamas',0xa    ;mensaje
   len equ $ - msg               ;length of our dear string

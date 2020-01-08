@@ -19,6 +19,6 @@ _start:            ;tell linker entry point
    int 0x80        ;call kernel
 
 section .data:
-msg db 'hola mundo!',0xa    ;our dear string
-len equ $ - msg             ;length of our dear string
+   msg db 'hola mundo!',0xa    ;our dear string
+   len equ $ - msg             ;length of our dear string
 
