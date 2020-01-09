@@ -11,16 +11,35 @@
 
 ;Registros: memoria de cpu.
 ;
-; Registros 
-;	EAX
-;	EBX
-;	ECX
-;	EDX	
-; Registros especiales:
-;	ESI
-;	EDI
+; Registros Generales 
+;	De datos: (32-bits)
+;	EAX	(acumulator) Se divide en AL(0-7), AH(8-15)
+;	EBX	(base)	      	
+;	ECX	(counter)
+;	EDX	(data)
+; 	De datos (16-bits): AX BX CX DX
+; 	De punteros
+	EIP	(Instruction pointer)
+	ESP	(Stack pointer)
+	EBP	(Base pointer)
+; 	De indices
+;	ESI	(Source Index)
+;	EDI	(Destination Index)
 
+; Registros de Control
+	OF: overflow
+	DF: direction
+	IF: interrupt
+	TF: trap
+	SG: sign
+	ZF: zero
+	PF: parity
+	CF: carry
 
+; Registros de Segmentos:
+	.text
+	.data
+	.bss
 ;Stack
 ;	LIFO data structure
 ;	Es un array en memoria
@@ -49,7 +68,7 @@ _start:
 
 
 
-;Operaciones de sistema:
+;SYSTEM CALLs: Operaciones de sistema:
 ;eax (OPCODE, operation code)
 ;             |eax |ebx                   |ecx            |edx         esi edi|def
 ;0:sys_restart|0x00|                      |-              |                   |kernel/signal.c:2058
@@ -63,6 +82,8 @@ _start:
 ;8:sys_creat  |0x08|const char <pathname> |int mode       |                   |fs/open.c:933   
 ;9:sys_link   |0x09|const char <oldname>  |const <newname>|                   |fs/namei.c:2520
 
+;La llamada se ejecuta con: 
+;	int 0x80 
 
 ;---------------------------------------------------------
 ;Estructura
@@ -80,7 +101,6 @@ section .bbs:
 
 ;DATA:
 section .data:
-
 
 
 
