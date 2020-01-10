@@ -1,32 +1,38 @@
 ;------------------------------
 ; Assembly (for Linux kernel en procesadores intel x86)
 ;------------------------------
-;Caracteristicas:
-;	Bajo nivel de abstraccion.
-;	Mayor control 
-;	Mas codigo
-;	Poco portable (depende de la arquitectura de la cpu)
-;	
 
+###Caracteristicas:
+	- Bajo nivel de abstraccion.
+	- Mayor control 
+	- Mas codigo
+	- Poco portable (depende de la arquitectura de la cpu)
+### Compilacion:
 
-;Registros: memoria de cpu.
-;
-; Registros Generales 
-;	De datos: (32-bits)
-;	EAX	(acumulator) Se divide en AL(0-7), AH(8-15)
-;	EBX	(base)	      	
-;	ECX	(counter)
-;	EDX	(data)
-; 	De datos (16-bits): AX BX CX DX
-; 	De punteros
-	EIP	(Instruction pointer)
-	ESP	(Stack pointer)
-	EBP	(Base pointer)
-; 	De indices
-;	ESI	(Source Index)
-;	EDI	(Destination Index)
+```
+sudo apt install nasm
+nasm -f elf test.asm
+ld test.o -o test
+```
 
-; Registros de Control
+## Registros: 
+Son pequeñós fragmentos de memoria en la cpu.
+
+### Registros Generales 
+ 	- De datos: (32-bits)
+ 		+ EAX/AX	(acumulator) Se divide en AL(0-7), AH(8-15)
+ 		+ EBX/BX	(base)	      	
+ 		+ ECX/CX	(counter)
+ 		+ EDX/DX	(data)
+ 	- De punteros
+        	+ EIP	(Instruction pointer)
+        	+ ESP	(Stack pointer)
+        	+ EBP	(Base pointer)
+  	- De indices
+ 		+ ESI	(Source Index)
+ 		+ EDI	(Destination Index)
+
+### Registros de Control
 	OF: overflow
 	DF: direction
 	IF: interrupt
@@ -36,31 +42,26 @@
 	PF: parity
 	CF: carry
 
-; Registros de Segmentos:
+### Registros de Segmentos:
 	.text
 	.data
 	.bss
-;Stack
-;	LIFO data structure
-;	Es un array en memoria
-;	Stack Pointer
-;	Random access
-;	
 
-;Compilacion:
-;sudo apt install nasm
-;nasm -f elf test.asm
-;ld test.o -o test
 
-global _start
-_start:
+## STACK
+Es un array en memoria de acceso random, tiene estructura de datos tipo "LIFO".
 
-;Comandos principales:
-;MOV <var>, <value>   
-;JMP
-;INT
-;PUSH
-;POP
+
+
+### Comandos principales:
+**``MOV``** <var>, <value>   
+
+**``JMP``**
+
+
+**``PUSH``**
+
+**``POP*``**
 
 ;Subrutinas:
 ;CALL
@@ -68,7 +69,8 @@ _start:
 
 
 
-;SYSTEM CALLs: Operaciones de sistema:
+### SYSTEM CALLs:
+ Operaciones de sistema:
 ;eax (OPCODE, operation code)
 ;             |eax |ebx                   |ecx            |edx         esi edi|def
 ;0:sys_restart|0x00|                      |-              |                   |kernel/signal.c:2058
@@ -83,25 +85,20 @@ _start:
 ;9:sys_link   |0x09|const char <oldname>  |const <newname>|                   |fs/namei.c:2520
 
 ;La llamada se ejecuta con: 
-;	int 0x80 
+**``INT 0x80``**
 
-;---------------------------------------------------------
-;Estructura
+## Estructura
 
-;TEXT:
-section .text       ;code segment
-  global _start     ;must be declared for linker 
-  
+### **``section .text``**
+```assembly
+ global _start     ;must be declared for linker 
 _start:            ;tell linker entry point
+```
+
+### **`section .bss`**:
 
 
-;BBS:
-section .bbs:
-
-
-;DATA:
-section .data:
-
+### **`.section .data`**:
 
 
 ;Instruction pointer

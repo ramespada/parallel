@@ -18,11 +18,8 @@ section .text     ;code segment
 _start:           ;tell linker entry point
 
    call _askinput
-
    call _getinput
-
    call _saludo
-
    call _exit
 
 _askinput:

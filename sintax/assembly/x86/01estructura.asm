@@ -3,7 +3,7 @@
 ;	Estructura + stdin
 ;--------------------------------
 section .data:
-  msg1 db 'Introduzca su nombre:' ;mensaje
+  msg1 db 'Introduzca su nombre: ' ;mensaje
   len1 equ $ - msg1               ;length of our dear string
   msg2 db 'Hola '  	 	  ;mensaje
   len2 equ $ - msg2               ;length of our dear string
@@ -18,11 +18,8 @@ section .text     ;code segment
 _start:           ;tell linker entry point
 
    call _askinput
-
    call _getinput
-
    call _saludo
-
    call _exit
 
 _askinput:
