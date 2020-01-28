@@ -64,22 +64,22 @@ int main(){
 	double xx, yy;
 	xx=1.2e-1;
         yy=-2.78;
-	//printf("pow(x,y) = %7.3f\n",pow(x,y));
-	//printf("sqrt(x) = %7.3f\n",sqrt(xx));
-	//printf("exp(x) = %7.3f\n",expt(xx));
-	//printf("log(x) = %7.3f\n",logt(xx));
-	//printf("sin(x) = %7.3f\n",sin(xx));
-	//printf("cos(x) = %7.3f\n",cos(xx));
+	printf("pow(x,y) = %7.3f\n",pow(x,y));
+	printf("sqrt(x) = %7.3f\n",sqrt(xx));
+	printf("exp(x) = %7.3f\n",exp(xx));
+	printf("log(x) = %7.3f\n",log(xx));
+	printf("sin(x) = %7.3f\n",sin(xx));
+	printf("cos(x) = %7.3f\n",cos(xx));
 
 	//Character
 	printf("CHARACTER / STRING:\n");
 	printf("-------------------\n");
 
-	//char letra="a";
-	//char str1[13]="asdasd asddsa";
+	char* letra = "a";
+	char str1[14]="asdasd asddsa";
 
-	//printf("Esto es una letra %d",letra);
-	//printf("Esto es un string %s",str1);
+	printf("Esto es una letra %s\n",letra);
+	printf("Esto es un string %s\n",str1);
 
 /*        
          character*30       :: str1="Esto es un string       "
