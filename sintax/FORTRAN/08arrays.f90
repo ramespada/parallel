@@ -2,10 +2,12 @@ program arrays
         
    implicit none
    
+   integer, parameter :: n=4
    character(len=20), dimension(5) :: frutas
-   integer :: n(3)
+   integer :: m(3)
    real    :: v(3)
    real    :: A(3,3)
+   real(8) :: B(n,n)
    integer :: i
    
    !Acceso y asignacion de valores:
@@ -23,8 +25,8 @@ program arrays
    end do
    print*, v
    !loops implicitos
-   n=(/ (i,i=1,9,3) /)
-   print*,n
+   m=(/ (i,i=1,9,3) /)
+   print*,m
    v=(/ (i,i=1, 3,1)  /)*0.45
    print*, v
    v=(/ (i*0.45,i=1, 3,1)  /)  !otra forma
@@ -43,6 +45,14 @@ program arrays
    print*, "Matriz A:"
    A = reshape((/(i*0.25,i=1,size(A))/), shape(A))
    write(*,'(3(f8.2))') A
+
+   print*, "Matriz B:"
+      B=reshape([16d0,  5d0,  9d0,  4d0, &
+               3d0, 10d0,  6d0, 15d0, &
+               2d0, 11d0,  7d0, 14d0, &
+              13d0,  8d0, 12d0,  1d0], [n, n])
+   print*,B
+
    
    !Aritmética + - * /   (entre aquellos de misma forma!!)
    print*,'A+A' 
