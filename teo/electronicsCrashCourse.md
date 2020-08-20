@@ -1,60 +1,62 @@
+# Fundamentos eléctricos de computadoras
+
+> Apuntes tomados de "CrashCourse on computer science (PBS studios)" y el libro "CODE" de Petzold.
 
 
->> Bases de computacion electronica basados en "CrashCourse on computer science (pbs studios)" y el libro "CODE" de Petzold.
-
-
-##Introduccion (historia)
-
-- Relays (): Puentes de corriente inducidos por bobinas electromagnéticos.
-
-- Valvulas de vacío: Por efecto electro-térmico (al calentarse emitian electrones que permitianel paso de corriente).
-
-- Transistores: Por uso de materiales semiconducotres (aveces actuan como resistencias y otras veces como conductores).
-
+## Introduccion (historia)
+Tecnologías para comptar basadas en:
+- *Relays*: Puentes de corriente inducidos por bobinas electromagnéticos.
+- *Valvulas de vacío*: Por efecto electro-térmico (al calentarse emitian electrones que permitianel paso de corriente).
+- *Transistores*: Por uso de materiales semiconducotres (aveces actuan como resistencias y otras veces como conductores).
 
 ##Sistema binario
-Por que no usar sistemas de mas de un estado? Dificil de diferenciar entre estados intermedios y ademas que ya existia un cuerpo teorico basado en logica binaria (Algebra booleana)
+Sistema de dos estados (e.g. {0, 1}).
+¿Por que no usar sistemas de mas de un estado? Dificil de diferenciar entre estados intermedios y ademas que ya existia un cuerpo teorico basado en logica binaria (Algebra booleana)
 
 
 ##Booleanos
+Operaciones fundamentales: NOT (!) AND (v)  OR (u)
 
-### Operaciones fundamentales: NOT (!) AND (v)  OR (u)
-
-#### NOT
+- *NOT* (!)
 Con transistores:
 
-INPUT OUTPUT
-T	F
-F	T
+|INPUT  | OUTPUT
+|---    |---    
+|T	| F
+|F	| T
 
-#### AND
-INP1 	INP2	OUTPUT
-T	T	T
-T	F	F
-F	T	F
-F	F	F
+- *AND* (v)
+
+|INP1 	|INP2	|OUTPUT
+|---    |---    |---
+|T	|T	|T
+|T	|F	|F
+|F	|T	|F
+|F	|F	|F
 
 Se puede construir con dos transitores en serie.
 	
+- *OR* (u)
 
-#### OR
-
-INP1	INP2	OUT
-T	T	T
-T	F	T
-F	T	T
-F	F	F
+|INP1	|INP2	|OUT
+|---    |---    |---
+|T	|T	|T
+|T	|F	|T
+|F	|T	|T
+|F	|F	|F
 
 Se puede construir con dos transistores en paralelo.
 
-###Operaciones derivadas: XOR (w)
+#### Operaciones derivadas: XOR (w)
 
 ### XOR
-INP1	INP2	OUT
-T	T	F
-T	F	T
-F	T	T
-F	F	F
+
+|INP1	|INP2	|OUT
+|---    |---    |---
+|T	|T	|F
+|T	|F	|T
+|F	|T	|T
+|F	|F	|F
 
 
 ##Gates/Celdas
@@ -63,37 +65,35 @@ F	F	F
 ###Datos binarios
 
 Medidas de informacion
-1 bit =  T/F
-8 bits = 1 byte
+
++ 1 bit  = T/F		
++ 8 bits = 1 byte	
+
 
 Representacion de numeros:
-	- Enteros	(signo, numero en binario)
-	- Floating points (signo, exponente, mantiza)
+	- Enteros: (signo, numero en binario)
+	- Floating points: (signo, exponente, mantiza)
 
 Representacion de letras:
 	ASCII (codigo de 7 bit)
 	UNICODE (16 bits)
 	UTF
 
-
-
 ### ALU (arithmetic-logical unit) 
 
-- Arithmetic unit: ADD, SUB
-	+ Half adder: SUM & CARRIER (echo con XOR y AND gates)
-		
-	+ ADD: 
-	+ ADD with carrier
-	+ SUB	
-	+ SUB with borrow
-	+ INC (increment by 1)
-	+ DEC (decrement by 1)
-	+ PASS (pass throug)
+- Arithmetic unit: (ADD, SUB)
+  + Half adder: SUM & CARRIER (echo con XOR y AND gates)
+  + ADD 
+  + ADD with carrier
+  + SUB	
+  + SUB with borrow
+  + INC (increment by 1)
+  + DEC (decrement by 1)
+  + PASS (pass throug)
 
 	* overflow: cuando el resultado de la operacion da un resultado mayor 
 
 - Logic Unit:
-
 
 
 ALUs: Toma dos inputs (8bits), 1 operation code (4bits), devuelven un output (8bits) y flags (overflow,zero, negative)
@@ -111,15 +111,10 @@ Multiplexers
 
 
 ### CPU
-
 - Control unit
-
 - RAM/Memoria
-
 - ALU
-
 - Clock
-
 - ROM
 
 
@@ -137,3 +132,5 @@ JG	(jump if greater)
 JL	(jump if lower)
 JEQ	(jump if equal)
 HALT
+
+
