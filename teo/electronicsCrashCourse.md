@@ -120,17 +120,17 @@ Multiplexers
 
 
 ### Instrucciones elementales:
+```assembly
 MOV (LOAD, WRITE)
-ADD (add 2 numbers)
-SUB (sub 2 numbers)
-INC (increment by 1)
-DEC (decrement by 1)
+ADD  (add 2 numbers)
+SUB  (sub 2 numbers)
+INC  (increment by 1)
+DEC  (decrement by 1)
 JMP
-JN	(jump if negative flag is true)
-JZ	(jump if zero flag is true)
-JG	(jump if greater)
-JL	(jump if lower)
-JEQ	(jump if equal)
+JN   (jump if negative flag is true)
+JZ   (jump if zero flag is true)
+JG   (jump if greater)
+JL   (jump if lower)
+JEQ  (jump if equal)
 HALT
-
-
+```

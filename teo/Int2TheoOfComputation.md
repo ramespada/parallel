@@ -9,10 +9,8 @@ Partes:
 
 ---
 
-# Parte 1: AUTOMATA
+# Parte I: AUTOMATA
 
-
----
 ## 1. Lenguajes Regulares
 
 ### 1.1 Automata Finito (FA)
@@ -106,7 +104,7 @@ Una forma de encontrar lenguajes no regulares es buscando que no cumplan las pro
 A = { 0<sup>n</sup>1<sup>n</sup> | n&geq;0}
 
 ---
-## 2 Lenguajes de contexto libre
+## 2. Lenguajes de contexto libre
 
 ### 2.1 Gramática de contexto libre
 
@@ -140,11 +138,11 @@ donde a es un terminal, y A, B y C son variables.
 
 Son parecidos a automatas no deterministicos, pero agregan un componente llamado *stack*, que provee memoria adicional. Esto hace posible que reconozca algunos lenguajes que no son regulares.
 
-Definición: Un PDA es una 6-tupla (Q, &Sigma;, &Lambda;, &delta;, q<sub>0</sub>,F) donde:
+Definición: Un PDA es una 6-tupla (Q, &Sigma;, &Gamma;, &delta;, q<sub>0</sub>,F) donde:
    1. Q es el conjunto finito de estados.
    2. &Sigma; es un conjunto finito de inputs (alfabeto).
-   3. &Lambda; es un conjunto finito de alphabetos, llamado *stack*.
-   4. &delta;: Q x &Sigma;<sub>&epsilon;</sub> x &Lambda;<sub>&epsilon;</sub> &rarr; P(Q x &Lambda;<sub>&epsilon;</sub>) es la función de transición.
+   3. &Gamma; es un conjunto finito de alphabetos, llamado *stack*.
+   4. &delta;: Q x &Sigma;<sub>&epsilon;</sub> x &Gamma;<sub>&epsilon;</sub> &rarr; P(Q x &Gamma;<sub>&epsilon;</sub>) es la función de transición.
    5. q<sub>0</sub> &isinv; Q es el estado inicial.
    6. F &sube; Q es el conjunto de estados de aceptación.
 
@@ -163,6 +161,149 @@ Teorema de equivalencia: Un lenguaje es libre de contexto si y solo si existe un
 
 
 ### 2.4 Lenguajes libres de contexto deterministicos
+
+
+
+
+
+
+
+
+
+--- 
+# Parte II: COMPUTABILIDAD
+
+
+---
+## 3. La tesis de Church-Turing
+
+
+
+### 3.1 Máquinas de Turnig (MT)
+
+Son modelos de computo similares a los automatas, pero de capacidad ilimitada de memoria. Una máquina de Turing hace todo lo que una computadora puede.
+
+Una MT usa una cinta infinita como memoria, y constiene un "cabezal" sobre la cinta que es capaz de leer, moverese y escribir sobre ella.
+
+La cinta tiene el string de entrada escrita y luego todos espacios vaciós (&blank;) alrededor. El cabezal comienza leyendo el primer elemento del string, y siguiendo las reglas definidas de transición puede: no modificar nada/borrar/escribir otro caractér en su lugar y luego moverse al siguiente caracter de la derecha (R) ó izquierda (L). Luego continúa leyendo el proximo caractér y así sucesivamente. 
+
+
+Definición formal: Una Máquina de Turing es una 7-tupla (Q,&Sigma;,&Gamma;, &delta;,q<sub>0</sub>, q<sub>acept</sub>,q<sub>reject</sub>) donde:
+   1. Q es un conjunto de estados. 
+   2. &Sigma; es el alfabeto de entradas (no incluye el simbolo &blank; blanco/vacío).
+   3. &Gamma; es el alfabeto de la cinta donde &blank; &isinv;&Gamma; y &Sigma; &sube; &Gamma;
+   4. &delta;: Q x &Sigma; &rarr; Q x &Sigma; x {L,R} es la función de transición.
+   5. q<sub>0</sub>&isinv;Q es el estado inicial.
+   6. q<sub>acept</sub>&isinv;Q es el estado de aceptación.
+   7. q<sub>reject</sub>&isinv;Q es el estado de rechazo (no puede ser igual a q<sub>acept</sub>).
+
+
+Decimos que un lenguaje es **Turnig-reconocible** si alguna MT puede reconocerlo.
+
+Cuando una maquina de turing se ejecuta un string de entrada, los resultados posibles pueden ser: **aceptarlo** (si entra al estado q<sub>acept</sub>), **rechazarlo** (si entra al estado q<sub>reject</sub>), **loppear infinitamente** nunca llega a un estado final. 
+
+Llamamos **decididores** a las MT que siempre llegan a un estado final (*halt*), es decir que no loopean infinitamente para ningún input. Cuando una MT decididora reconoce un lenguaje decimos que **decide sobre el lenguaje**.
+
+Definicion: un lenguaje es **Turing-decidible** si existe una MT que lo decide.
+
+
+### 3.2. Variantes de Máquinas de Turing
+Se han propuesto MT con distintas características tales como *MT multi-cinta* ó *MT no deterministas* y todas estas resultaron tener la misma capacidad de computo que la MT simple. 
+
+Teorema de equivalencia: Para toda MT multi-cinta existe una MT equivalente.
+
+Teorema de equivalencia: Para toda MT no determinista existe una MT equivalente.
+
+
+Llamamos *enumeradores* a MT que además incorporan un "dispositivo de salida". Si el enumerador decide, entonces el string de salida decimos que es enumerado por el enumerador.
+
+Teorema: Un lenguaje es Turin-reconocible si y solo si algún enumerador lo enumera.
+
+
+### 3.3. Definición de algorítmo
+
+Informalmente hablando, un **algoritmo** (también llamados **procedimientos** ó **recetas**) es una colección de instrucciones que llevan a cabo una tarea. 
+
+La *tesis de Church-Turing* da una definición formal a la idea de algorítmo basada en el sistema de notación **&lambda;-calculus** que resultó equivalente a la definición de Máquina de Turing. Por lo tanto, un algortímo es lo mismo que un algorítmo en el contexto de las máquinas de Turing.
+
+
+
+
+
+
+---
+## 4. Decidibilidad
+
+
+### 4.1. Lenguajes decidibles
+
+
+
+### 4.2. Indecidibilidad
+
+
+
+---
+## 5. Reducibilidad
+
+### 5.1. Problemas indecidibles de teoría del lenguaje
+
+
+
+### 5.2. Un problema indecidible simple
+
+
+### 5.3. Mapeando reducidibilidad
+
+
+
+
+
+---
+## 6. Temas avanzados en computabilidad
+
+
+### 6.1. Teorema de recursión
+
+
+
+### 6.2. Decidibilidad de teorías logicas
+
+
+
+### 6.3. Definición de información
+
+
+
+
+
+---
+# Parte III: COMPLEJIDAD
+
+---
+## 7. Complejidad temporal
+
+
+
+
+
+
+
+---
+## 8. Complejidad espacial
+
+
+
+
+
+
+---
+## 9. Intratabilidad
+
+
+
+
+
 
 
 
