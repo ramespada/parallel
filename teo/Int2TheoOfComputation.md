@@ -12,11 +12,18 @@ Secciones:
 ## 1. AUTOMATA
 
 
-Un *Automata finito* es una 5-tupla (Q,\Sigma, \delta, q_{i},F), donde:
-	1. $Q$ conjunto de posibles estados.
-	2. $\Sigma$ conjunto finito de acciones *alfabeto*.
-	3. $\delta: Q \times \Sigma \rightarrow Q$ 
-	4. $q_{i} \in Q$: estado inicial.
-	5. $F \in Q$: estado final.
+Un *Automata finito* es una 5-tupla (Q, \Sigma, \delta, q_{i}, F), donde:
+   1. Q conjunto de posibles estados.
+   2. &Sigma; conjunto finito de acciones *alfabeto*.
+   3. &delta;: Q x &Sigma; &rarr; Q$ 
+   4. q<sub>0</sub> &isinv; Q: estado inicial.
+   5. F &isinv; Q: estado final.
 
-[Esquema de automata finito](FA_diagram.png)
+<p align="center"><img src="./img/FA_diagram.png" height="60"/></p>
+
+
+
+<!--
+\in &isinv;
+
+-->
