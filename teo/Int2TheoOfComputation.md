@@ -69,9 +69,9 @@ Definición: Decimos que R es una **expresión regular** si:
    1. R es a &isinv; &Sigma;
    2. R es &epsilon; 
    3. R es &empty;
-   4. R = (R_1 &xcup; R_2), donde R_1 y R_2 son regex
-   5. R = (R_1 &cir; R_2),  donde R_1 y R_2 son regex
-   6. R = R_1&sstarf;, donde R_1 es regex.
+   4. R = (R<sub>1</sub> &xcup; R<sub>2</sub>), donde R<sub>1 y R<sub>2</sub> son regex
+   5. R = (R<sub>1</sub> &cir; R<sub>2</sub>),  donde R<sub>1 y R<sub>2</sub> son regex
+   6. R = R<sub>1</sub>&sstarf;, donde R<sub>1</sub> es regex.
 
 
 
@@ -110,9 +110,9 @@ A = { 0<sup>n</sup>1<sup>n</sup> | n&geq;0}
 
 Una gramática consiste en una colección de **reglas de sustitución** (también llamadas **producciones*). Cada regla aparece como una linea en la gramática, por ejemplo:
 <p style="text-align:center">
-A&rarr; 0A1<br>
-A&rarr; B  <br>
-B&rarr; #
+A &rarr; 0A1<br>
+A &rarr; B  <br>
+B &rarr; #
 </p>
 
 Una gramática de contexto libre (CFG, **context-free grammar**) es una 4-tupla( V, &Sigma;, R, S):
@@ -173,13 +173,11 @@ Teorema de equivalencia: Un lenguaje es libre de contexto si y solo si existe un
 --- 
 # Parte II: COMPUTABILIDAD
 
-
----
 ## 3. La tesis de Church-Turing
 
 
 
-### 3.1 Máquinas de Turnig (MT)
+### 3.1 Máquinas de Turing (MT)
 
 Son modelos de computo similares a los automatas, pero de capacidad ilimitada de memoria. Una máquina de Turing hace todo lo que una computadora puede.
 
@@ -198,7 +196,7 @@ Definición formal: Una Máquina de Turing es una 7-tupla (Q,&Sigma;,&Gamma;, &d
    7. q<sub>reject</sub>&isinv;Q es el estado de rechazo (no puede ser igual a q<sub>acept</sub>).
 
 
-Decimos que un lenguaje es **Turnig-reconocible** si alguna MT puede reconocerlo.
+Decimos que un lenguaje es **Turing-reconocible** si alguna MT puede reconocerlo.
 
 Cuando una maquina de turing se ejecuta un string de entrada, los resultados posibles pueden ser: **aceptarlo** (si entra al estado q<sub>acept</sub>), **rechazarlo** (si entra al estado q<sub>reject</sub>), **loppear infinitamente** nunca llega a un estado final. 
 
@@ -237,26 +235,75 @@ La *tesis de Church-Turing* da una definición formal a la idea de algorítmo ba
 
 ### 4.1. Lenguajes decidibles
 
+#### Problemas decidibles que involucran lenguajes regulares
+A<sub>DFA</sub> = { &lang;B,&omega;&rang; | B es un DFA que acepta el string &omega;}
+Teorema: A<sub>DFA</sub> es un lenguaje decidible.
+
+A<sub>NFA</sub> = { &lang;B,&omega;&rang; | B es un NFA que acepta el string &omega;}
+Teorema: A<sub>DFA</sub> es un lenguaje decidible.
+
+E<sub>DFA</sub> = { &lang;A&rang; | A es DFA y L(A)=&empty;}
+Teorema: E<sub>DFA</sub> es un lenguaje decidible.
+
+EQ<sub>DFA</sub> = { &lang;A,B&rang; | A y B son DFA y L(A)=L(B)}
+Teorema: EQ<sub>DFA</sub> es un lenguaje decidible.
+
+#### Problemas decidibles que involucran Gramática de contexto libre
+
+A<sub>CFG</sub> = { &lang;G,&omega;&rang; | G es CFG que genera &omega;}
+Teorema: A<sub>CFG</sub> es un lenguaje decidible.
+
+E<sub>CFG</sub> = { &lang;G&rang; | A es CFG y L(G)=&empty;}
+Teorema: E<sub>CFG</sub> es un lenguaje decidible.
+
+EQ<sub>CFG</sub> = { &lang;G,H&rang; | G y H son CFG y L(G)=L(H)}
+Teorema: Todo lenguaje libre de contexto es decidible.
 
 
 ### 4.2. Indecidibilidad
+A<sub>TM</sub> = { &lang;M,&omega;&rang; | M es TM que acepta &omega;}
 
-
+Teorema de indecidibilidad: A<sub>TM</sub> es indecidible. (Le prueba involucra el uso de el Método de Diagonalización de Cantor)
 
 ---
 ## 5. Reducibilidad
 
+La *reducción* es unaforma de convertr un probema en otro de forma tal que la solución al nuevo problema pueda ser utilizada para resolver el primero.
+
+La reducidibilidad juega un rol central en la clasificación de problemas por decidibilidad, así también como en complejidad.
+
+
 ### 5.1. Problemas indecidibles de teoría del lenguaje
 
+Considere el prolema de la "parada" (**the halting problem**):
+
+HALT<sub>TM</sub> = { &lang;M,&omega;&rang; | M es TM y "halts" (finaliza/decide) en el input &omega;}
 
 
-### 5.2. Un problema indecidible simple
+Podemos demostrar que es indecidible al reducirlo al problema A<sub>TM</sub>.
+
+Lo mismo pasaría con: 
+- E<sub>TM</sub>={&lang;M&rang;| M es TM y L(M)=&empty;}
+- REGULAR<sub>TM</sub>={&lang;M&rang;| M es TM y L(M) es un lenguaje regular}
+- EQ<sub>TM</sub>={&lang;M<sub>1</sub>,M<sub>2</sub>&rang;| M<sub>1</sub> y M<sub>2</sub> son TM y L(M<sub>1</sub>)=L(M<sub>2</sub>)}
+
+### 5.2. Un problema indecidible simple:
+
+El problema de la "post-correspondencia" (**Post Correspondence Problem, PCP**).
+
 
 
 ### 5.3. Mapeando reducidibilidad
 
+Definición: Una función &fnof;:&Sigma;* &rarr; &Sigma;* es *computable* si alguna Máquina de Turing M, en cada input &omega; finaliza con &fnof;(&omega;) en su cinta.
 
 
+Definición: Decimos que el lenguaje A es un *mapeo reducible* a el lenguaje B (lo notamos como A&leq;<sub>m</sub> B) si hay una función computable &fnof; para cada &omega; tal que:  &omega;&isinv; A&hArr; &fnof;(&omega;)&isinv;B. Y la función &fnof; es llamada *reducción* de A a B.
+
+
+Teorema: Si A&leq;<sub>m</sub> B y B es decidible, entonces A es decidble.
+
+Teorema: Si A&leq;<sub>m</sub> B y B es Turing-reconocible, entonces A es Turing-reconocible.
 
 
 ---
@@ -280,7 +327,6 @@ La *tesis de Church-Turing* da una definición formal a la idea de algorítmo ba
 ---
 # Parte III: COMPLEJIDAD
 
----
 ## 7. Complejidad temporal
 
 
