@@ -330,9 +330,160 @@ Teorema: Si A&leq;<sub>m</sub> B y B es Turing-reconocible, entonces A es Turing
 ## 7. Complejidad temporal
 
 
+### 7.1 Medición de complejidad
+Definición: Sea M una TM determinísta que decide para cualquier string. Llamamos *tiempo de corrida* de M a la función f:&naturals;&rarr;&naturals; donde f(n) es el máximo numero de pasos que M usa para decidir cualquier string de longitud **n**.
+
+
+#### Notación Big-O 
+
+Cuantifica la realción que hay entre el numero de pasos de un algoritmo en relación al tamaño del input.
+
+Definición: f(n) &isinv; O(g(n)) sii &exist; k,x0 t.q. &forall;x &geq;x0, f(n) &leq; kg(n)
+
+decimos que O(g(n)) es límite superior asintótico (ó supremo) a f(n). Osea f(n) es asintoticamente no mayor a g(n)
+
+#### Notación Small-o
+
+Definición: f(x) &isinv; o(g(x)) sii lim (n&rarr;&infin; f(n)/g(n) =0 
+
+es decir, que para cualquier c&isin;&reals; > 0  &exist; n0 t.q. f(n) < c g(n) &forall; n &geq;n0.
+
+#### Clase de complejidad temporal
+
+Definición: Sea t: &naturals; &isinv; &reals;<sup>+</sup> una función. Definimos la *clase de complejidad temporal* (TIME(t(n)) como la colección de todos los lenguajes que son decididos por una MT en tiempo O(t(n)).
+
+Ejemplos de clases:
+- O(1)
+- O(nlog(n))
+- O(n)
+- O(n<sup>2</sup>)
+- O(2<sup>n</sup>)
+
+
+#### Relación de complejidad entre distintos modelos
+
+Teorema: Sea t(n) una función, donde t(n) &geq; n. Luego toda TM multi-cinta de tiempo t(n) tiene una TM equivalente O(t<sup>2</sup>(n)) de simple cinta.
+
+
+Teorema: Sea t(n) una función donde t(n) &geq; n. Luego toda TM no-determinista simple cinta de tiempo t(n) tiene una TM equivalente 2<sup>O(t(n))</sup>.
+
+
+Estos dos teoremas muestran que por un lado hay una diferencia por lo menos **polinómica** entre maquinas de turing simple-cinta vs multi-cinta. Y por otrolado hay una diferencia  por lo menos **exponencial** entre MT determinístas vs no-deterministas.
+
+### 7.2. Clase P
+
+Definición: P es la clase de lengujes que son decidibles en tiempo polinómico en una MT determinísta simple-cinta. 
+<p style="text-align:center;"> P = &Union; TIME(n<sup>k</sup>)</p>
+
+La importancia de la clase P radica en:
+   1. P es invariante a cualquier modelo de computación que son polinómicamente equivalentes a una TM determinísta simple-cinta.
+   2. P corresponde a la clase de problemas que son, a grandes rasgos, resolvibles por computadoras.
+
+
+#### Ejemplos de P:
+-   PATH={&lang;G,s,t &rang; | G es un grafo direcionado que tiene una trayectoria de s a t.}
+-   RELPRIME={&lang;x,y &rang; |x e y son coprimos.}
+
+
+Teorema: Todo Lenguaje libre de contexto es miembro de P.
+
+
+### 7.3. Clase NP
+
+
+Definición: Un *verificador* de un lenguaje A es un algoritmo V donde:
+A={w | V acepta &lang;w,c&rang; para algún string c}
 
 
 
+Definición: *NP* es la clase de lenguajes que son verificables en tiempo polinómico.
+
+Teorema: Un lenguaje es NP sii es decidido por algúna TM no-determiniística de clase de tiempo polinómica.
+
+
+
+
+
+
+Definición: llamamos a clase de complejidad temporal no determinística a la función NTIME tal que:
+<p style="text-align:center;"> NTIME(t(n))={L | L es un lenguaje decidido por una TM no-determinística en un tiempo O(t(n))}</p>
+
+Corolario:
+<p style="text-align:center;"> NP = &Union; NTIME(n<sup>k</sup>)</p>
+
+#### Ejemplos de NP:
+-   HAMPATH={&lang;G,s,t &rang; | G es un grafo direcionado que tiene una trayectoria Hamiltoniana de s a t, es decir va a s a t pasando por cada nodo exactamente una vez.}
+-   COMPOSITES={x |x=pq  para p,q &isinv; &integers;> 1.}
+-   CLIQUE ={&lang;G,k &rang; | G es un grafo unidireccional con k-clique} Es decir &exists; un subgrafo en G de k-nodos donde cada nodo está conectado por un puente con todos los otros nodos.
+-   SUBSET-SUM = {&lang;S,t&rang;| S = {x1,...,xk} y para algún {y1,...,yl}&subes;S se cumple &Sum;yi =t&isin;&integers;}
+
+
+
+#### P vs NP
+Repasando:
+
+P= la clase de lenguajes para los cuales su pertenencia puede ser  **decidida**  rápido.
+NP= la clase de lenguajes para los cuales su pertenencia puede ser **verificada** rápido.
+
+La respuesta si P=NP, aún es un problema abierto.
+
+
+
+### 7.4 Completitud NP
+
+Hay problemas que han sido descubiertos que su complejidad individual está relacionada con la complejidad de la clase NP en su totalidad. A estos problemas se los conoce como *NP-completos*, y en el hipotético caso de que se descubra una solución a polinómica a estos problemas, esto implicaría inmediatamente que la clase NP=P.
+
+#### El problema de satisfabilidad (SAT)
+
+Consiste en determinar si una **formula booleana** (una expresión que contiene variables booleanas con operadores booleanos) es satisfacible, esto es que para alguna evaluación particular de sus variables se obtenga un resultado positivo (1 ó TRUE).
+
+SAT={&lang;&Phi;&rang; | &Phi; es una formula booleana satisfacible.}
+
+
+Teorema: SAT &isinv; P &iff;  P = NP.
+
+
+#### Reducibilidad temporal polinómica
+
+Análogo a la reducidibilidad de problemas en computabilidad, podemos reducir un problema a otro teniendo en cuenta la complejidad, si la opreación necesaria para reducirlo es polinómica.
+
+Una función &Sigma; &rarr; &Sigma; es *una funcion computable polinomica* si existe alguna MT polinómica  que decide con solo f(w) en su cinta cuando empieza con el input w.
+
+
+Definición: Un lenguaje A es **reducible a tiempo polinómico** a B (lo notamos A&leq;<sub>p</sub> B) si existe una función computable polinómica tal que para todo w:
+w&isinv;A &iff; f(w)&isinv;B
+
+
+Teorema: Si A&leq;<sub>p</sub> B y B&isinv;P &implies; A&isinv;P.
+
+
+Ejemplos:
+
+-  3SAT (un caso particular de SAT) es reducible a CLIQUE.
+
+
+
+Definición: Un lenguaje B es *NP-Completo* si satisface dos condiciones:
+1. B es en NP.
+2. todo A &isinv; NP es polinomicamente reducible a B.
+
+
+
+Teorema: Si B es NP-completo, y B&isinv;P &implies; P=NP.
+
+
+Teorema: Si B es NP-completo, y B&leq;<sub>p</sub> C, para C&isinv;NP, entonces C es NP-completo.
+
+#### Teorema de Cook-Levin
+Teorema: SAT es NP-completo.
+
+
+### 7.5 Otros problemas NP-completos
+
+- CLIQUE.
+- HAMPATH
+- SUBSET-SUM
+- VERTEX-COVER={&lang;G,k&rang;| G es un grafo no direccional que tiene k-nodos coverturas}
 
 
 ---
