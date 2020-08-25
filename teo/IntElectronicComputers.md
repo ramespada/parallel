@@ -134,3 +134,61 @@ JL   (jump if lower)
 JEQ  (jump if equal)
 HALT
 ```
+
+
+
+
+
+<!-- 
+# CODE (Petzold)
+
+## 1. Código
+
+Definiciones:
+- Sistema de señales usado para representar letras ó numeros en transmisión de mensajes.
+- Sistema de simbolos, letras, palabras con cierto significado arbitrario, usado para tranmitir mensajes que requieren confidencialidad ó brevedad.
+- Sistema de simbolos y reglas usado para representar instrucciones a una computadora.
+
+### Código Morse
+Conjunto de *puntos* y *guiones* que mapeaen el alfabeto.
+
+## 2. Códigos y combinatoria
+
+numero de codigos  =  2<sup>numero de simbolos</sup>
+
+## 3. Braile y Binario
+
+## 4. Anatomía de un flash
+
+## 5. Mirando alrededor de las esquinas
+
+## 6. Telegrafos y Relays
+
+## 7. Nuestros 10 dígitos
+
+## 8. Alternativas a 10
+
+## 9. Bit por bit por bit
+
+## 10. Logica y switches 
+## 11. Compuertas (Gates)
+## 12. Una maquina de adición binaria
+## 13. Substracción
+## 14. Feedback y Flip-flops
+## 15. Bites y Hex
+## 16. Ensabmblaje de memoria 
+## 17. Automata
+## 18. Del Abaco a Chips
+## 19. Dos microprocesadores clásicos
+
+### Intel 8080
+### MC6800
+
+## 20. ASCII
+## 21. RAM y otros componentes
+## 22. Sistema Operativo
+## 23. Punto flotante y fijo
+## 24. Lenguajes
+## 25. Revolución Gráfica
+
+-->

@@ -1,7 +1,6 @@
 # Introduccion a la computacion paralela
-	<Tutorial de Parallel Computing Explained en citutor.org >
 
-> 
+> Resumen de HPC basados en articulos de "Tutorial de Parallel Computing Explained" (citutor.org)  y libro de Severance. 
 
 
 ### Tipos de procesos
@@ -18,3 +17,29 @@ Para paralelizar un algoritmo es necesario **descomponer** (el proceso o los dat
 #### Paralelismo en computadoras:
 
 
+
+---
+
+# High Performance Computing (HPC)
+## 1 Modern Computer Architectures
+### 1.1 Memory
+### 1.2 Floating-Point Numbers
+
+## 2 Programming and Tuning Software
+### 2.1 What a Compiler Does
+### 2.2 Timing and Profiling
+### 2.3 Eliminating Clutter
+### 2.4 Loop Optimizations
+
+## 3 Shared-Memory Parallel Processors
+### 3.1 Understanding Parallelism
+### 3.2 Shared-Memory Multiprocessors
+### 3.3 Programming Shared-Memory Multiprocessors 
+
+## 4 Scalable Parallel Processing
+### 4.1 Language Support for Performance
+### 4.2 Message-Passing Environments
+
+## 5 Appendixes
+### 5.1 Appendix C: High Performance Microprocessors 
+### 5.2 Appendix B: Looking at Assembly Language

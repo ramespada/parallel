@@ -414,8 +414,8 @@ Corolario:
 #### Ejemplos de NP:
 -   HAMPATH={&lang;G,s,t &rang; | G es un grafo direcionado que tiene una trayectoria Hamiltoniana de s a t, es decir va a s a t pasando por cada nodo exactamente una vez.}
 -   COMPOSITES={x |x=pq  para p,q &isinv; &integers;> 1.}
--   CLIQUE ={&lang;G,k &rang; | G es un grafo unidireccional con k-clique} Es decir &exists; un subgrafo en G de k-nodos donde cada nodo está conectado por un puente con todos los otros nodos.
--   SUBSET-SUM = {&lang;S,t&rang;| S = {x1,...,xk} y para algún {y1,...,yl}&subes;S se cumple &Sum;yi =t&isin;&integers;}
+-   CLIQUE ={&lang;G,k &rang; | G es un grafo unidireccional con k-clique} Es decir &Exists; un subgrafo en G de k-nodos donde cada nodo está conectado por un puente con todos los otros nodos.
+-   SUBSET-SUM = {&lang;S,t&rang;| S = {x1,...,xk} y para algún {y1,...,yl}&sube;S se cumple &Sum;yi =t&isin;&integers;}
 
 
 
@@ -454,7 +454,7 @@ Definición: Un lenguaje A es **reducible a tiempo polinómico** a B (lo notamos
 w&isinv;A &iff; f(w)&isinv;B
 
 
-Teorema: Si A&leq;<sub>p</sub> B y B&isinv;P &implies; A&isinv;P.
+Teorema: Si A&leq;<sub>p</sub> B y B&isinv;P &Implies; A&isinv;P.
 
 
 Ejemplos:
@@ -469,7 +469,7 @@ Definición: Un lenguaje B es *NP-Completo* si satisface dos condiciones:
 
 
 
-Teorema: Si B es NP-completo, y B&isinv;P &implies; P=NP.
+Teorema: Si B es NP-completo, y B&isinv;P &Implies; P=NP.
 
 
 Teorema: Si B es NP-completo, y B&leq;<sub>p</sub> C, para C&isinv;NP, entonces C es NP-completo.
