@@ -2,14 +2,13 @@
 
 int main(){
 
- 	printf("Hola wacho!\n");
+ 	printf("Hola mundo!\n");
  
 	return 0;
 }
 /*
 Compilar:
 	g++ script.cpp
-
 Ejecutar:
 	./a.out
 */
