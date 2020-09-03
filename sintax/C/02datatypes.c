@@ -3,7 +3,11 @@
 #include <math.h>	//aritmetica
 #include <string.h>	//strings
 
+#define PI 3.14 	//constantes simbólicas, reemplaza PI por 3.14
+
 int main(){
+
+	printf("PI=%f\n",PI);
 
 	//integers
 	printf("INTEGERS:\n");
@@ -81,6 +85,10 @@ int main(){
 	printf("Esto es una letra %s\n",letra);
 	printf("Esto es un string %s\n",str1);
 
+
+	char c;
+	c = getchar();
+	putchar(c);
 /*        
          character*30       :: str1="Esto es un string       "
          character (len=30) :: str2=", este es otro string.  "

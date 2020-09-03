@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
+/*definicion de constantes simbolicas */
+#define a 10
+#define saludo "Hola"
+
+/*variables externas/globales*/
+int b=1;
 int main(){
            
 	//Esto es un comentario
