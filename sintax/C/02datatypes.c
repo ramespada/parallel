@@ -85,11 +85,11 @@ int main(){
 	printf("Esto es una letra %s\n",letra);
 	printf("Esto es un string %s\n",str1);
 
-
+/*
 	char c;
 	c = getchar();
 	putchar(c);
-/*        
+        
          character*30       :: str1="Esto es un string       "
          character (len=30) :: str2=", este es otro string.  "
   
@@ -109,5 +109,14 @@ int main(){
          print*, index(str2, 'otro',back=.true.)
          print*, verify(str1,'Esto es un strang')
 */
+   	char srcString[40];
+   	char destString[100];
+  
+   	memset(destString, '\0', sizeof(destString));
+   	strcpy(srcString, "Este es un string");
+   	strcpy(destString, srcString);
+
+   	printf("String resultante: %s\n", destString);
+   
   return 0;
 }
