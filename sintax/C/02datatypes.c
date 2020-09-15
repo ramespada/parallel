@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>	//aritmetica
+#include <stdlib.h>	
 #include <math.h>	//aritmetica
 #include <string.h>	//strings
 
@@ -115,8 +115,18 @@ int main(){
    	memset(destString, '\0', sizeof(destString));
    	strcpy(srcString, "Este es un string");
    	strcpy(destString, srcString);
-
    	printf("String resultante: %s\n", destString);
    
+
+
+	// Type conversion:
+	/* bool -> char -> short int -> int -> unsigned int -> long -> unsigned -> long long -> float -> double -> long double 	*/
+	// char to int
+	char a[1] = "j";
+	int i= atoi(a);
+	printf("letra: %s; int %d\n", a, atoi(a));
+
+
+
   return 0;
 }

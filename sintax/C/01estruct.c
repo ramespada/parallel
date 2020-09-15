@@ -7,6 +7,13 @@
 
 /*variables externas/globales*/
 int b=1;
+
+/*subrutinas y funciones */
+void ask(){
+        printf("Cual es tu nombre? ");	//stdout
+}
+
+/* main function */
 int main(){
            
 	//Esto es un comentario
@@ -15,10 +22,14 @@ int main(){
         char nombre[10] = "estimado";
 	
 	//Instrucciones del programa:
-        printf("Cual es tu nombre? ");	//stdout
-        scanf("%s",nombre);		//stdin
+        ask();
+	scanf("%s",nombre);		//stdin
         
 	printf("Hola %s! Todo tranqui?\n",nombre);
         
    	return 0;	
 }
+
+
+
+
