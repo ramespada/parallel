@@ -1,0 +1,59 @@
+
+#Descargar libs:
+
+sudo apt-get install netcdf-bin
+sudo apt-get install libnetcdf-dev libnetcdff-dev
+
+
+#Data:
+https://www.unidata.ucar.edu/
+
+
+
+
+
+#Crear NetCDF en C:
+
+
+int main(){
+	//Crear NetCDF:
+	nc_create();
+
+	//Definir parameetros del NetCDF (dimensiones, variables)
+	nc_def_dim();
+	nc_def_var();
+	nc_enddef(ncid);	//cerrar modo "definicion" de datos.
+
+	
+	//Poner datos en el netcdf:
+	nc_put_var_int();
+	nc_close();
+
+
+
+
+	return 0
+}
+
+
+
+
+#Compilar codigo de C:
+#
+gcc ejemplo.c -o ejemplo $(nc-config --libs --cflags)
+
+
+
+
+
+
+# ncdump    <--->  ncgen
+#
+
+# ncdump   nc  --> CLD
+#
+
+# ncgen   CLD  --> nc
+
+
+
